@@ -14,26 +14,20 @@
 */
 import { useState } from 'react'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Home from './pages/Home'
 
 export default function App() {
- 
+
   return (
 
     <div className="bg-white">
 
-        <Navbar />
+      <Navbar />
 
-      <main className="mb-auto mt-10 bg-white grid content-center justify-center w-600">Content
+      <Home />
 
-      </main>
-
-      <footer>
-        <div className='relative'>
-          <div className='fixed bottom-0 bg-secondary w-full h-16 grid content-center justify-center'>
-            your text
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
     </div>
 
