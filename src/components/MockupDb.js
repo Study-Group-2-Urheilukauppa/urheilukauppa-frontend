@@ -162,8 +162,7 @@ export const database = {
 
   ],
   pages: [
-    { name: 'Yrityksemme', href: '#' },
-    { name: 'Asiakaspalvelu', href: '#' },
+    
   ],
 };
 
