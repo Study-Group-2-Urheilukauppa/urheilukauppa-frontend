@@ -1,11 +1,13 @@
 import {  Fragment } from 'react'
+import { useState } from 'react'
 import { Dialog, Tab, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import classNames from '../components/Navbar.js'
-
+import database from './MockupDb.js'
 
 export default function Menu() {
   const [open, setOpen] = useState(false)
+
   return(
 <>
 {/* Mobile menu */}
@@ -49,7 +51,7 @@ export default function Menu() {
         <Tab.Group as="div" className="mt-2">
           <div className="border-b border-gray-200">
             <Tab.List className="-mb-px flex space-x-8 px-4">
-              {navigation.categories.map((category) => (
+              {database.categories.map((category) => (
                 <Tab
                   key={category.name}
                   className={({ selected }) =>
@@ -65,7 +67,7 @@ export default function Menu() {
             </Tab.List>
           </div>
           <Tab.Panels as={Fragment}>
-            {navigation.categories.map((category) => (
+            {database.categories.map((category) => (
               <Tab.Panel key={category.name} className="space-y-10 px-4 pt-10 pb-8 ">
                 <div className="grid grid-cols-2 gap-x-4">
                   {category.featured.map((item) => (
@@ -109,7 +111,7 @@ export default function Menu() {
         </Tab.Group>
 
         <div className="space-y-6 border-t border-gray-200 py-6 px-4">
-          {navigation.pages.map((page) => (
+          {database.pages.map((page) => (
             <div key={page.name} className="flow-root">
               <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
                 {page.name}
