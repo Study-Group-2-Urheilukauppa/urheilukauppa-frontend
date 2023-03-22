@@ -1,14 +1,13 @@
-import { useState, Fragment } from 'react'
+import {  Fragment } from 'react'
 import { Dialog, Tab, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import classNames from '../App.js'
-import Navigation from '../components/Navigation'
-
-<Navigation />
-
-export default function Menu(open, setOpen, navigation) {
+import classNames from '../components/Navbar.js'
 
 
+export default function Menu() {
+  const [open, setOpen] = useState(false)
+  return(
+<>
 {/* Mobile menu */}
 <Transition.Root show={open} as={Fragment}>
 <Dialog as="div" className="relative z-40 lg:hidden " onClose={setOpen}>
@@ -137,4 +136,6 @@ export default function Menu(open, setOpen, navigation) {
   </div>
 </Dialog>
 </Transition.Root>
+</>
+  )
 }
