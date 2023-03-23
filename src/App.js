@@ -16,6 +16,7 @@ import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
+import Navigation from './components/Navigation'
 
 export default function App() {
 
@@ -23,7 +24,7 @@ export default function App() {
 
     <div className="bg-white">
 
-      <Navbar />
+      <Navigation />
 
       <Home />
 
