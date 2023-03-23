@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 export default function Navigation() {
   return (
-    <header className="relative bg-secondary">
+    <header className="fixed top-0 w-full bg-secondary">
       <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="border-b border-gray-200">
           <div className="flex h-16 items-center">
