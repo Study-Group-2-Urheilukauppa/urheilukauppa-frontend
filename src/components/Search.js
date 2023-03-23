@@ -3,7 +3,7 @@ import React from 'react'
 export default function Search() {
     return (
 <>
-<div class=" justify-center">
+<div class=" justify-center ml-auto">
   <div class="pt-4 xl:w-96">
     <div class="relative mb-4 flex w-full flex-wrap items-stretch">
       <input

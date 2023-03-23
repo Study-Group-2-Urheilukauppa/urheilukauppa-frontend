@@ -6,17 +6,17 @@ import { Link } from 'react-router-dom'
 
 export default function Navigation() {
   return (
-    <header className="fixed top-0 w-full bg-secondary">
+    <header className="fixed top-0 w-full bg-secondary z-50">
       <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="border-b border-gray-200">
           <div className="flex h-16 items-center">
 
             {/* Logo */}
-            <div className="ml-4 flex lg:ml-0">
+            <div className="ml-4 w-24 lg:ml-0">
               <Link to="/">
                 <span className="sr-only">XXS</span>
                 <img
-                  className="h-24 w-auto"
+                  className="h-24 w-auto max-w-none"
                   src={xxslogo}
                   alt=""
                 />
