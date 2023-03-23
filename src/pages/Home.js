@@ -6,7 +6,7 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 
 export default function Home() {
     return (
-        <main className="mb-auto mt-10 bg-white grid content-center justify-center w-600">
+        <main className="mb-auto mt-20 bg-white grid content-center justify-center w-600">
 
 <div className="container mx-auto">
             <div className="flex items-center justify-center w-full h-40 py-24 sm:py-8 px-4 bg-fifth ">
