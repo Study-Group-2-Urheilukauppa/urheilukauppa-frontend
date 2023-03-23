@@ -2,9 +2,11 @@
 Tools used:
 ```
 Create React App
+react-router-dom
 Tailwindcss
 HeadlessUI
 heroicons
+pure-react-carousel
 ```
 
 ## Setting up the dev environment
@@ -12,8 +14,8 @@ heroicons
 Install TailwindCSS as dev dependency:
 `npm install -D tailwindcss`
 
-Install headlessUI and heroicons normal dependencies:
-`npm install @headlessui/react @heroicons/react`
+Install normal dependencies:
+`npm install create-react-app react-router-dom @headlessui/react @heroicons/react pure-react-carousel`
 
 To run and build the project we use [Create React App](https://github.com/facebook/create-react-app).
 
