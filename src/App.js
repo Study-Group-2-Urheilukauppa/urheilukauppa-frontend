@@ -35,17 +35,16 @@ export default function App() {
 
       <Navigation />
 
-      <Home />
-      <div className='container'>
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/" element={<Winter />} />
-          <Route path="/" element={<Maila />} />
-          <Route path="/" element={<Water />} />
-          <Route path="/" element={<Bike />} />
-          <Route path="/" element={<Fitness />} />
-          <Route path="/" element={<ShoppingCart />} />
-          <Route path="/" element={<Help />} />
+          <Route path="/Winter" element={<Winter />} />
+          <Route path="/Maila" element={<Maila />} />
+          <Route path="/Water" element={<Water />} />
+          <Route path="/Bike" element={<Bike />} />
+          <Route path="/Fitness" element={<Fitness />} />
+          <Route path="/ShoppingCart" element={<ShoppingCart />} />
+          <Route path="/Help" element={<Help />} />
         </Routes>
       </div>
 
