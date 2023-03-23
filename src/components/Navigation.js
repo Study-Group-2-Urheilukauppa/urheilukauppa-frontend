@@ -1,6 +1,6 @@
 import xxslogo from '../images/xxs-logo.png'
 import Search from '../components/Search'
-import {  ShoppingBagIcon } from '@heroicons/react/24/outline'
+import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 
 export default function Navigation() {
   return (
@@ -21,27 +21,25 @@ export default function Navigation() {
               </a>
             </div>
 
-          <div className="text-indigo-600 text-sm font-medium"><a href="#" className="pl-4">Talviurheilu</a> 
-          <a href="#" className="pl-4">Mailapelit</a> 
-          <a href="#" className="pl-4">Vesiurheilu</a>
-          <a href="#" className="pl-4">Pyöräily</a>
-          <a href="#" className="pl-4 pr-10">Kuntoilu</a>
-           </div>
+            <div className="text-indigo-600 text-sm font-medium"><a href="#" className="pl-4">Talviurheilu</a>
+              <a href="#" className="pl-4">Mailapelit</a>
+              <a href="#" className="pl-4">Vesiurheilu</a>
+              <a href="#" className="pl-4">Pyöräily</a>
+              <a href="#" className="pl-4 pr-10">Kuntoilu</a>
+            </div>
+            <Search />
 
-         <Search />
-
-                                         {/* Cart */}
-                                         <div className="ml-4 flow-root lg:ml-6">
-                                    <a href="#" className="group -m-2 flex items-center p-2">
-                                        <ShoppingBagIcon
-                                            className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                                            aria-hidden="true"
-                                        />
-                                        <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
-                                        <span className="sr-only">items in cart, view bag</span>
-                                    </a>
-                                </div>
-
+            {/* Cart */}
+            <div className="ml-4 flow-root lg:ml-6">
+              <a href="#" className="group -m-2 flex items-center p-2">
+                <ShoppingBagIcon
+                  className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                  aria-hidden="true"
+                />
+                <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                <span className="sr-only">items in cart, view bag</span>
+              </a>
+            </div>
           </div>
         </div>
       </nav>
