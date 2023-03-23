@@ -1,6 +1,8 @@
+import React from 'react'
 import xxslogo from '../images/xxs-logo.png'
 import Search from '../components/Search'
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 
 export default function Navigation() {
   return (
@@ -21,11 +23,11 @@ export default function Navigation() {
               </a>
             </div>
 
-            <div className="text-indigo-600 text-sm font-medium"><a href="#" className="pl-4">Talviurheilu</a>
-              <a href="#" className="pl-4">Mailapelit</a>
-              <a href="#" className="pl-4">Vesiurheilu</a>
-              <a href="#" className="pl-4">Pyöräily</a>
-              <a href="#" className="pl-4 pr-10">Kuntoilu</a>
+            <div className="text-indigo-600 text-sm font-medium"><Link className="pl-4 nav-link" to="/Winter">Talviurheilu</Link>
+              <Link className="pl-4 nav-link" to="/Maila">Mailapelit</Link>
+              <Link className="pl-4 nav-link" to="/Water">Vesiurheilu</Link>
+              <Link className="pl-4 nav-link" to="/Bike">Pyöräily</Link>
+              <Link className="pl-4 pr-10 nav-link" to="/Fitness">Kuntoilu</Link>
             </div>
             <Search />
 
