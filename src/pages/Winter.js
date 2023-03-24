@@ -27,7 +27,7 @@ export default function Winter() {
             </main>
             <ol>
                 {product.map(x => 
-                        <li>{x.productname}</li>
+                        <li>{x.productname}, {x.descript}</li>
                     )}     
             </ol>
         </>
