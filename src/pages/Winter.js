@@ -5,7 +5,7 @@ const URL = "http://localhost:3000/products/getproducts.php"
 
 export default function Winter() {
 
-    const [category, setCategory] = useState([])
+    const [product, setProduct] = useState([])
 
     useEffect(() => {
 
@@ -14,7 +14,7 @@ export default function Winter() {
 
         axios.get(address)
             .then((response) => {
-                setCategory(response.data)
+                setProduct(response.data.products)
             }).catch(error => {
                 alert(error)
             })
@@ -26,7 +26,9 @@ export default function Winter() {
             <main className="mb-auto mt-20 bg-white grid content-center justify-center w-600">Talviurheilu
             </main>
             <ol>
-                <li>{category}</li>             
+                {product.map(x => 
+                        <li>{x.productname}</li>
+                    )}     
             </ol>
         </>
     )
