@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { v4 as uuidv4} from 'uuid'; 
 
 const URL = "http://localhost:3000/products/getproducts.php"
 
@@ -30,7 +29,7 @@ export default function Fitness() {
             <div className="grid grid-cols-4 gap-5">
             
                 {product.map(x => 
-                        <div key={uuidv4()}>
+                        <div key={x.productid}>
                         <img src={process.env.PUBLIC_URL + x.imgURL} alt={x.productname}></img>
                         <div className="text-xl font-bold">{x.productname}</div> 
                         <div>{x.descript}</div>
