@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const URL = "http://localhost:3000/products/getproducts.php"
 
-export default function Winter() {
+export default function Bike() {
 
     const [product, setProduct] = useState([])
 
@@ -23,13 +23,17 @@ export default function Winter() {
 
     return (
         <>
-            <main className="mb-auto mt-20 bg-white grid content-center justify-center w-600">Talviurheilu
+            <main className="mb-auto mt-20 bg-white grid content-center justify-center w-600">Pyöräily
             </main>
             <ol>
                 {product.map(x => 
+                        <div>
                         <li>{x.productname}, {x.descript}</li>
+                        <img src={process.env.PUBLIC_URL + x.imgURL}></img>
+                        </div>
                     )}     
             </ol>
+    
         </>
     )
 }
