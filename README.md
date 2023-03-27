@@ -7,6 +7,7 @@ Tailwindcss
 HeadlessUI
 heroicons
 pure-react-carousel
+uuid
 ```
 
 ## Setting up the dev environment
