@@ -28,6 +28,7 @@ import DefinitelyNotAdmin from './pages/DefinitelyNotAdmin'
 
 import Navigation from './components/Navigation'
 import { Routes, Route } from 'react-router-dom'
+import Category from './pages/Category'
 
 export default function App() {
 
@@ -40,6 +41,7 @@ export default function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Category/:categoryId" element={<Category />} />
           <Route path="/Winter" element={<Winter />} />
           <Route path="/Maila" element={<Maila />} />
           <Route path="/Water" element={<Water />} />
