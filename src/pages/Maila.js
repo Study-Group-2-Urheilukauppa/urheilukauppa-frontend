@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const URL = "http://localhost:3000/products/getproducts.php"
 
@@ -29,12 +30,14 @@ export default function Maila() {
             <div className="grid grid-cols-4 gap-5">
             
                 {product.map(x => 
+                        <Link to={`../product/${x.productid}`} className="hover:bg-secondary hover:bg-opacity-20 p-2">
                         <div key={x.productid}>
                         <img src={process.env.PUBLIC_URL + x.imgURL} alt={x.productname}></img>
                         <div className="text-xl font-bold">{x.productname}</div> 
                         <div>{x.descript}</div>
                         <div className="text-xl font-bold">{x.price} €</div>
                         </div>
+                        </Link>
                     )}     
             
             </div>

@@ -47,7 +47,7 @@ export default function App() {
           <Route path="/Fitness" element={<Fitness />} />
           <Route path="/ShoppingCart" element={<ShoppingCart />} />
           <Route path="/Help" element={<Help />} />
-          <Route path="/Product" element={<Product />} />
+          <Route path="/Product/:productId" element={<Product />} />
           <Route path="/DefinitelyNotAdmin" element={<DefinitelyNotAdmin />} />
         </Routes>
       </div>
