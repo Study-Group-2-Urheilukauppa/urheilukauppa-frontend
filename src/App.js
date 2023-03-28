@@ -20,7 +20,7 @@ import ShoppingCart from './pages/ShoppingCart'
 import Help from './pages/Help'
 import Product from './pages/Product'
 import DefinitelyNotAdmin from './pages/DefinitelyNotAdmin'
-
+import Feedback from './pages/Feedback'
 import Navigation from './components/Navigation'
 import { Routes, Route } from 'react-router-dom'
 import Category from './pages/Category'
@@ -39,6 +39,7 @@ export default function App() {
           <Route path="/Category/:categoryId" element={<Category />} />
           <Route path="/ShoppingCart" element={<ShoppingCart />} />
           <Route path="/Help" element={<Help />} />
+          <Route path="/Feedback" element={<Feedback />} />
           <Route path="/Product/:productId" element={<Product />} />
           <Route path="/DefinitelyNotAdmin" element={<DefinitelyNotAdmin />} />
         </Routes>
