@@ -23,6 +23,7 @@ import Bike from './pages/Bike'
 import Fitness from './pages/Fitness'
 import ShoppingCart from './pages/ShoppingCart'
 import Help from './pages/Help'
+import Product from './pages/Product'
 
 import Navigation from './components/Navigation'
 import { Routes, Route } from 'react-router-dom'
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="/Fitness" element={<Fitness />} />
           <Route path="/ShoppingCart" element={<ShoppingCart />} />
           <Route path="/Help" element={<Help />} />
+          <Route path="/Product" element={<Product />} />
         </Routes>
       </div>
 
