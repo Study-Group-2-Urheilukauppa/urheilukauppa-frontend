@@ -1,10 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import xxslogo from '../images/xxs-logo.png'
 import Search from '../components/Search'
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
+
+const URL = "http://localhost:3000/products/getcategories.php"
 
 export default function Navigation() {
+
+  const {categoryId} = useParams();
+  const [categories, setCategories] = useState([]);
+
+
+  useEffect(() => {
+
+      const criteria = categoryId;
+      const address = URL + "/" + criteria;
+
+      axios.get(address)
+          .then((response) => {
+              setCategories(response.data);
+          }).catch(error => {
+              alert(error)
+          })
+  }, [])
+
   return (
     <header className="fixed top-0 w-full bg-secondary z-50">
       <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -23,11 +44,15 @@ export default function Navigation() {
               </Link>
             </div>
 
-            <div className="text-indigo-600 text-sm font-medium"><Link className="pl-4 nav-link" to="/Winter">Talviurheilu</Link>
+            <div className="text-indigo-600 text-sm font-medium">
+            {categories.map(x => 
+                        <Link className="pl-4 nav-link" to={`/category/${x.categoryid}`} key={x.categoryid}>{x.categoryname}</Link>
+                    )}  
+            { /* <Link className="pl-4 nav-link" to="/Winter">Talviurheilu</Link>
               <Link className="pl-4 nav-link" to="/Maila">Mailapelit</Link>
               <Link className="pl-4 nav-link" to="/Water">Vesiurheilu</Link>
               <Link className="pl-4 nav-link" to="/Bike">Pyöräily</Link>
-              <Link className="pl-4 pr-10 nav-link" to="/Fitness">Kuntoilu</Link>
+            <Link className="pl-4 pr-10 nav-link" to="/Fitness">Kuntoilu</Link>*/}
             </div>
             <Search />
 
