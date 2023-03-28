@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useState } from 'react';
 
+const URL = "http://localhost:3000/login.php";
+
 function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -21,7 +23,7 @@ function LoginForm() {
             password: password
         };
 
-        axios.post('/login.php', loginData)
+        axios.post(URL, loginData)
             .then(response => {
                 if (response.data.success) {
                     // Redirect the user to a different page
@@ -57,3 +59,4 @@ function LoginForm() {
 }
 
 export default LoginForm;
+
