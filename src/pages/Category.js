@@ -7,16 +7,19 @@ const URL = "http://localhost:3000/products/getproducts.php"
 export default function Category() {
 
     const {categoryId} = useParams();
-    const [product, setProduct] = useState([]);
+    const [category, setCategory] = useState("");
+    const [products, setProducts] = useState([]);
+
 
     useEffect(() => {
 
-        const criteria = "categoryId";
+        const criteria = categoryId;
         const address = URL + "/" + criteria;
 
         axios.get(address)
             .then((response) => {
-                setProduct(response.data.products)
+                setCategory(response.data.category);
+                setProducts(response.data.products);
             }).catch(error => {
                 alert(error)
             })
@@ -26,11 +29,11 @@ export default function Category() {
     return (
         <>
             <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600">
-                <div className="text-2xl font-bold">{product.category}</div><br></br>
+                <div className="text-2xl font-bold">{category}</div><br></br>
            
             <div className="grid grid-cols-4 gap-5">
             
-                {product.map(x => 
+                {products.map(x => 
                         <Link to={`../product/${x.productid}`} key={x.productid} className="hover:bg-secondary hover:bg-opacity-20 p-2">
                         <img src={process.env.PUBLIC_URL + "../" + x.imgURL} alt={x.productname}></img>
                         <div className="text-xl font-bold">{x.productname}</div> 
