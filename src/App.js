@@ -24,6 +24,7 @@ import Feedback from './pages/Feedback'
 import Navigation from './components/Navigation'
 import { Routes, Route } from 'react-router-dom'
 import Category from './pages/Category'
+import SearchResult from './pages/SearchResult'
 
 export default function App() {
 
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/Feedback" element={<Feedback />} />
           <Route path="/Product/:productId" element={<Product />} />
           <Route path="/DefinitelyNotAdmin" element={<DefinitelyNotAdmin />} />
+          <Route path="/SearchResult" element={<SearchResult />} />
         </Routes>
       </div>
 
