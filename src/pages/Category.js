@@ -23,7 +23,7 @@ export default function Category() {
             }).catch(error => {
                 alert(error)
             })
-    }, [])
+        }, [categoryId])
 
 
     return (

@@ -48,11 +48,6 @@ export default function Navigation() {
             {categories.map(x => 
                         <Link className="pl-4 nav-link" to={`/category/${x.categoryid}`} key={x.categoryid}>{x.categoryname}</Link>
                     )}  
-            { /* <Link className="pl-4 nav-link" to="/Winter">Talviurheilu</Link>
-              <Link className="pl-4 nav-link" to="/Maila">Mailapelit</Link>
-              <Link className="pl-4 nav-link" to="/Water">Vesiurheilu</Link>
-              <Link className="pl-4 nav-link" to="/Bike">Pyöräily</Link>
-            <Link className="pl-4 pr-10 nav-link" to="/Fitness">Kuntoilu</Link>*/}
             </div>
             <Search />
 
