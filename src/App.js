@@ -25,6 +25,7 @@ import Navigation from './components/Navigation'
 import { Routes, Route } from 'react-router-dom'
 import Category from './pages/Category'
 import SearchResult from './pages/SearchResult'
+import NotFound from './pages/NotFound'
 
 export default function App() {
 
@@ -36,6 +37,7 @@ export default function App() {
 
       <div>
         <Routes>
+          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/Category/:categoryId" element={<Category />} />
           <Route path="/ShoppingCart" element={<ShoppingCart />} />
