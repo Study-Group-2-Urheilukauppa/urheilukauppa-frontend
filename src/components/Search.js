@@ -1,16 +1,18 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Link} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 export default function Search() {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState([]);
+  const navigate = useNavigate();
 
   const handleSearch = async () => {
     try {
       const response = await axios.get(`http://localhost:3000/search.php?q=${searchTerm}`);
       setResults(response.data);
+      navigate('/pages/SearchResult');
     } catch (error) {
       console.error(error);
     }
