@@ -12,7 +12,7 @@ export default function Search() {
     try {
       const response = await axios.get(`http://localhost:3000/search.php?q=${searchTerm}`);
       setResults(response.data);
-      navigate('/pages/SearchResult');
+      navigate('../SearchResult', { state: { results: response.data }});
     } catch (error) {
       console.error(error);
     }
@@ -45,11 +45,6 @@ export default function Search() {
             clipRule="evenodd" />
         </svg>
       </span>
-      <ul>
-        {results.map((result) => (          
-            <li key={result.productid}>{result.productname}</li>              
-        ))}
-      </ul>
     </div>
   </div>
 </div>
