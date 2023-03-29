@@ -44,10 +44,8 @@ export default function Search() {
         </svg>
       </span>
       <ul>
-        {results.map((result) => (
-            <Link to = {`../searchResult/`}>           
-            <li key={result.id}>{result.name}</li>    
-            </Link>          
+        {results.map((result) => (          
+            <li key={result.productid}>{result.productname}</li>              
         ))}
       </ul>
     </div>
