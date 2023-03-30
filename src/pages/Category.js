@@ -31,19 +31,19 @@ export default function Category() {
     return (
         <>  {products ?
             <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600">
-                <div className="text-2xl font-bold">{category}</div><br></br>
+                <div className="text-md font-bold md:text-lg lg:text-2xl">{category}</div><br></br>
 
                 <div className="grid grid-cols-4 gap-5">
 
                     {products.map((result) => (
                         <Link to={`../product/${result.productid}`} key={result.productid} className="hover:bg-secondary hover:bg-opacity-20 p-2">
                             <img src={process.env.PUBLIC_URL + "../" + result.imgURL} alt={result.productname}></img>
-                            <div className="text-xl font-bold">{result.productname}</div>
-                            <div>{result.descript}</div>
+                            <div className="text-xs font-bold sm:text-sm md:text-md lg:text-lg">{result.productname}</div>
+                            <div className="text-xs hidden md:flex sm:text-sm md:text-md">{result.descript}</div>
                             {result.sale && (
-                                <p className="text-xl text-alered font-bold">{(((100 - result.sale) / 100) * result.price).toFixed(2)} € ALE-HINTA!</p>
+                                <p className="text-xs text-alered font-bold sm:text-sm md:text-md lg:text-2xl">{(((100 - result.sale) / 100) * result.price).toFixed(2)}€ ALE-HINTA!</p>
                             )}
-                            <div className="text-xl font-bold">{result.price} €</div>
+                            <div className="text-xs font-bold sm:text-sm md:text-md lg:text-2xl">{result.price} €</div>
                         </Link>
                     ))}
                 </div>

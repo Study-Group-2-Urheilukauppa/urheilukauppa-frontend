@@ -59,7 +59,7 @@ export default function Home() {
                                         <img src={process.env.PUBLIC_URL + "../" + x.imgURL} alt={x.productname} />
                                         <p className="font-bold">{x.productname}</p>
                                         <p>{x.descript}</p>
-                                        <br />
+                    
                                         <p className="text-xl text-alered font-bold">{(((100 - x.sale) / 100) * x.price).toFixed(2)} € ALE-HINTA!</p>
                                         <p className="text-xl font-bold line-through">{x.price} €</p>
                                     </div>
