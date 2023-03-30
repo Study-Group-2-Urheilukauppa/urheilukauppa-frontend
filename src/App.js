@@ -27,6 +27,7 @@ import { Routes, Route } from 'react-router-dom'
 import Category from './pages/Category'
 import SearchResult from './pages/SearchResult'
 import NotFound from './pages/NotFound'
+import SignUp from './pages/SignUp'
 
 export default function App() {
 
@@ -47,6 +48,7 @@ export default function App() {
           <Route path="/Product/:productId" element={<Product />} />
           <Route path="/DefinitelyNotAdmin" element={<DefinitelyNotAdmin />} />
           <Route path="/SearchResult" element={<SearchResult />} />
+          <Route path="/SignUp" element={<SignUp />} />
         </Routes>
       </div>
 
