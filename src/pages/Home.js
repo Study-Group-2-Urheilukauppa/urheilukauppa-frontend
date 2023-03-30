@@ -26,7 +26,7 @@ export default function Home() {
             <main className="mx-20 mb-auto mt-20 bg-white content-center justify-center">
 
                 <div className="container mx-auto">
-                    <div className="flex items-center justify-center w-full h-40 py-24 sm:py-8 px-4 bg-fifth mb-5">
+                    <div className="flex items-center justify-center w-full h-40 py-24 sm:py-8 px-4 bg-fifth mb-5 border-4 border-alered">
                         <p className="text-5xl font-bold text-alered">ALEN LOPPURYSÄYS!</p>
                     </div></div>
 
@@ -51,8 +51,8 @@ export default function Home() {
                         </ButtonNext>
                         <Slider className="slider">
                             {product.map(x => (
-                                <Slide index={x.productid} key={x.productid} className="slide">
-                                     <Link to={`../product/${x.productid}`} key={x.productid} className="hover:bg-secondary hover:bg-opacity-20 p-2">
+                                <Slide index={x.productid} key={x.productid} className="slide hover:bg-secondary hover:bg-opacity-20">
+                                     <Link to={`../product/${x.productid}`} key={x.productid} className="p-2 ">
                                     <div className="max-w-2xl max-h-2xl">
                                         <img src={process.env.PUBLIC_URL + "../" + x.imgURL} alt={x.productname} />
                                         <p className="font-bold">{x.productname}</p>
