@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate} from 'react-router-dom';
 
 const URL = "http://localhost:3000/login.php";
 
-function LoginForm() {
+export default function LoginForm() {
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
+    
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
     };
@@ -27,7 +29,7 @@ function LoginForm() {
             .then(response => {
                 if (response.data.success) {
                     // Redirect the user to a different page
-                    window.location.href = '/dashboard';
+                    navigate = ('../category');
                 } else {
                     // Display an error message
                     alert(response.data.message);
@@ -58,5 +60,4 @@ function LoginForm() {
     );
 }
 
-export default LoginForm;
 
