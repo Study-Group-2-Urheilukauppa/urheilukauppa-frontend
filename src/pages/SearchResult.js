@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation,Link } from 'react-router-dom';
 
 export default function SearchResult() {
   const location = useLocation();
@@ -10,12 +10,12 @@ export default function SearchResult() {
       <div className="grid grid-cols-4 gap-5">
 
         {results.map((result) => (
-          <ul key={result.productid} className="hover:bg-secondary hover:bg-opacity-20 p-2">
+          <Link to={`../product/${result.productid}`} key={result.productid} className="hover:bg-secondary hover:bg-opacity-20 p-2">
             <img src={process.env.PUBLIC_URL + "../" + result.imgURL} alt={result.productname}></img>
             <div className="text-xl font-bold">{result.productname}</div>
             <div>{result.descript}</div>
             <div className="text-xl font-bold">{result.price} €</div>
-          </ul>
+          </Link>
         ))}
 
       </div>
