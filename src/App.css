@@ -75,3 +75,5 @@
 .carousel__back-button:hover, .carousel__next-button:hover {
   background-color: #666;
 }
+
+.pointer       { cursor: pointer; }

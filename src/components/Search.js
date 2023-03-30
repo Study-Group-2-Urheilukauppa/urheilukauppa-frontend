@@ -37,10 +37,10 @@ export default function Search() {
               aria-label="Search"
               aria-describedby="button-addon2"
             />
-            <button onClick={handleSearch}>Search</button>
             <span
-              className="input-group-text flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700 dark:text-neutral-200"
+              className="pointer input-group-text flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700 dark:text-neutral-200"
               id="basic-addon2"
+              onClick={handleSearch}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
