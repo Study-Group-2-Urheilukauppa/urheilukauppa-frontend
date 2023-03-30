@@ -35,30 +35,17 @@ export default function Category() {
 
                 <div className="grid grid-cols-4 gap-5">
 
-                    {products.map(x => {
-                        if (x.sale !== null) {
-                            return (
-
-                                <Link to={`../product/${x.productid}`} key={x.productid} className="hover:bg-secondary hover:bg-opacity-20 p-2">
-                                    <img src={process.env.PUBLIC_URL + "../" + x.imgURL} alt={x.productname}></img>
-                                    <div className="text-xl font-bold">{x.productname}</div>
-                                    <div>{x.descript}</div>
-                                    <p className="text-xl text-alered font-bold">{(((100 - x.sale) / 100) * x.price).toFixed(2)} € ALE-HINTA!</p>
-                                    <p className="text-xl font-bold line-through">{x.price} €</p>
-                                </Link>
-                            );
-                        } else {
-                            return (
-
-                                <Link to={`../product/${x.productid}`} key={x.productid} className="hover:bg-secondary hover:bg-opacity-20 p-2">
-                                    <img src={process.env.PUBLIC_URL + "../" + x.imgURL} alt={x.productname}></img>
-                                    <div className="text-xl font-bold">{x.productname}</div>
-                                    <div>{x.descript}</div>
-                                    <div className="text-xl font-bold">{x.price} €</div>
-                                </Link>
-                            )
-                        }
-                    })}
+                    {products.map((result) => (
+                        <Link to={`../product/${result.productid}`} key={result.productid} className="hover:bg-secondary hover:bg-opacity-20 p-2">
+                            <img src={process.env.PUBLIC_URL + "../" + result.imgURL} alt={result.productname}></img>
+                            <div className="text-xl font-bold">{result.productname}</div>
+                            <div>{result.descript}</div>
+                            {result.sale && (
+                                <p className="text-xl text-alered font-bold">{(((100 - result.sale) / 100) * result.price).toFixed(2)} € ALE-HINTA!</p>
+                            )}
+                            <div className="text-xl font-bold">{result.price} €</div>
+                        </Link>
+                    ))}
                 </div>
             </main>
             : <NotFound />}
