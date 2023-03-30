@@ -38,7 +38,8 @@ export default function Home() {
                         visibleSlides={4}
                         className="carousel-provider"
                     >
-                        
+
+                        <div className="relative h-full ">
                         <ButtonBack role="button" aria-label="slide backward" className="absolute z-30 left-0 ml-8 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer" id="prev">
                             <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7 1L1 7L7 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
@@ -52,9 +53,9 @@ export default function Home() {
                         <Slider className="slider">
                             {product.map(x => (
                                 <Slide index={x.productid} key={x.productid} className="slide hover:bg-secondary hover:bg-opacity-20">
-                                     <Link to={`../product/${x.productid}`} key={x.productid} className="p-2 ">
+                                     <Link to={`../product/${x.productid}`} key={x.productid}>
                                     <div className="max-w-2xl max-h-2xl">
-                                        <img src={process.env.PUBLIC_URL + "../" + x.imgURL} alt={x.productname} />
+                                        <img src={process.env.PUBLIC_URL + "../" + x.imgURL} alt={x.productname} className="p-4" />
                                         <p className="font-bold">{x.productname}</p>
                                         <p>{x.descript}</p>
                                         <br />
@@ -65,6 +66,7 @@ export default function Home() {
                                 </Slide>
                             ))}
                         </Slider>
+                        </div>
 
                     </CarouselProvider>
                 </div>

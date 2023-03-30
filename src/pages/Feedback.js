@@ -34,17 +34,17 @@ function FeedbackForm() {
     <div>
     <form>
       <label>Nimi: </label>
-        <input class="border-2 border-black mb-2" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <input className="border-2 border-black mb-2" type="text" value={name} onChange={(e) => setName(e.target.value)} />
         <br />
       <label>Email: </label>
-        <input class="border-2 border-black" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input className="border-2 border-black" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <br />
         <br />
       <label>Palaute: </label> 
       <br />
-        <textarea rows="8" cols="100" class="border-2 border-black" value={feedback} onChange={(e) => setFeedback(e.target.value)}></textarea>
+        <textarea rows="8" cols="100" className="border-2 border-black" value={feedback} onChange={(e) => setFeedback(e.target.value)}></textarea>
         <br />
-      <button class="border-2 border-black" type="button" onClick={submitFeedback}>Lähetä lomake</button>
+      <button className="border-2 border-black" type="button" onClick={submitFeedback}>Lähetä lomake</button>
     </form>
     </div>
     </>

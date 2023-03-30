@@ -53,6 +53,9 @@
   height: 100%;
 }
 .carousel__back-button, .carousel__next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   background-color: #333;
   color: #fff;
   padding: 10px;
@@ -61,6 +64,12 @@
   cursor: pointer;
   font-size: 16px;
   margin: 0 10px;
+}
+.carousel__next-button {
+  right: 0;
+}
+.carousel__back-button {
+  left: 0;
 }
 
 .carousel__back-button:hover, .carousel__next-button:hover {
