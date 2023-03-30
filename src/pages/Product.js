@@ -32,15 +32,20 @@ export default function Product() {
                     {product.map(x => {
                         if (x.sale !== null) {
                             return (
-                                <div className="grid grid-cols-2 text-xl font-bold gap-5" key={x.productid}>
+                                <div className="grid grid-cols-2 text-xl gap-5" key={x.productid}>
                                     <div className="max-w-2xl">
 
                                         <img src={process.env.PUBLIC_URL + "../" + x.imgURL} alt={x.productname}></img>
                                     </div>
 
-                                    <div>{x.productname}<br /><br /><p className="font-normal max-w-2xl">{x.fulldescript}</p><br />
-                                        <p className="text-3xl text-alered font-bold">{(((100 - x.sale) / 100) * x.price).toFixed(2)} € ALE-HINTA!</p>
-                                        <p className="text-3xl font-bold line-through">{x.price} €</p>
+                                    <div><div className="text-xs font-bold sm:text-sm md:text-md lg:text-lg">{x.productname}</div><br />
+                                    <p className="text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">{x.fulldescript}</p><br />
+                                        <p className="text-xs text-alered font-bold sm:text-sm md:text-md lg:text-2xl">{(((100 - x.sale) / 100) * x.price).toFixed(2)} € ALE-HINTA!</p>
+                                        <p className="text-xs font-bold sm:text-sm md:text-md lg:text-2xl line-through">{x.price} €</p>
+                                        <br></br>
+                                        <button class="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
+                                          Lisää ostoskoriin
+                                        </button>
                                     </div>
                                 </div>
                             );
@@ -54,7 +59,13 @@ export default function Product() {
 
                                     <div>{x.productname}<br /><br /><p className="font-normal max-w-2xl">{x.fulldescript}</p><br />
                                         <p className="text-3xl font-bold">{x.price} €</p>
+                                        <br></br>
+                                        <button class="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded">
+                                          Lisää ostoskoriin
+                                        </button>
+
                                     </div>
+                                    
                                 </div>
                             )
                         }

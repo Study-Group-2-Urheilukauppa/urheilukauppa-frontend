@@ -26,8 +26,8 @@ export default function Home() {
             <main className="mx-20 mb-auto mt-20 bg-white content-center justify-center">
 
                 <div className="container mx-auto">
-                    <div className="flex items-center justify-center w-full h-40 py-24 sm:py-8 px-4 bg-fifth mb-5 border-4 border-alered">
-                        <p className="text-5xl font-bold text-alered">ALEN LOPPURYSÄYS!</p>
+                    <div className="flex items-center justify-center w-full h-2/5 sm:py-8 px-4 bg-fifth mb-5 border-4 border-alered">
+                        <p className="text-md sm:text-xl md:text-3xl lg:text-5xl font-bold text-alered">ALEN LOPPURYSÄYS!</p>
                     </div></div>
 
                 <div>
@@ -57,11 +57,11 @@ export default function Home() {
                                      <Link to={`../product/${x.productid}`} key={x.productid}>
                                     <div className="max-w-2xl max-h-2xl p-2">
                                         <img src={process.env.PUBLIC_URL + "../" + x.imgURL} alt={x.productname} />
-                                        <p className="font-bold">{x.productname}</p>
-                                        <p>{x.descript}</p>
+                                        <p className="text-xs sm:text-sm md:text-md lg:text-lg font-bold">{x.productname}</p>
+                                        <p className="text-xs hidden md:flex sm:text-sm md:text-md lg:text-lg">{x.descript}</p>
                     
-                                        <p className="text-xl text-alered font-bold">{(((100 - x.sale) / 100) * x.price).toFixed(2)} € ALE-HINTA!</p>
-                                        <p className="text-xl font-bold line-through">{x.price} €</p>
+                                        <p className="text-xs text-alered font-bold sm:text-sm md:text-md lg:text-2xl">{(((100 - x.sale) / 100) * x.price).toFixed(2)} € ALE-HINTA!</p>
+                                        <p className="text-xs font-bold sm:text-sm md:text-md lg:text-2xl line-through">{x.price} €</p>
                                     </div>
                                     </Link>
                                 </Slide>
