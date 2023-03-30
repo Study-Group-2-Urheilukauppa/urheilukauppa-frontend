@@ -39,11 +39,11 @@
 
 .carousel-provider {
   width: 100%;
-  height: 700px;
+  height: 800px;
 }
 
 .slider {
-  width: 80%;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
 }
@@ -54,7 +54,7 @@
 }
 .carousel__back-button, .carousel__next-button {
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   background-color: #333;
   color: #fff;
