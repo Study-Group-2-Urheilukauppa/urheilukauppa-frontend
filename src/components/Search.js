@@ -2,19 +2,14 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const URL = "http://localhost:3000/search.php";
-
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const criteria = searchTerm
-    const address = URL + "q=" + criteria
-
     if (searchTerm !== '') {
-      axios.get(address)
+      axios.get(`http://localhost:3000/search.php?q=${searchTerm}`)
         .then(response => {
           setResults(response.data);
         })
