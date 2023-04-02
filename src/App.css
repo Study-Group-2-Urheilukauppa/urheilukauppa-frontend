@@ -80,4 +80,5 @@
 
 .salebg{
   background-image: url(images/sale.png);
+  background-size: cover;
 }
