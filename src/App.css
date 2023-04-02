@@ -77,3 +77,7 @@
 }
 
 .pointer       { cursor: pointer; }
+
+.salebg{
+  background-image: url(images/sale.png);
+}

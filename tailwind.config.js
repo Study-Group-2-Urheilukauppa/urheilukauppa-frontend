@@ -8,7 +8,7 @@ module.exports = {
       third: '#5FBFF9',
       fourth: '#5863F8',
       fifth: '#EFE9F4',
-      alered: '#DC2626'      
+      alered: '#DC2626'
     },
     extend: {},
   },
