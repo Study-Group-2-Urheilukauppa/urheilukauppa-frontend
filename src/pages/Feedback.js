@@ -29,24 +29,24 @@ function FeedbackForm() {
 
   return (
     <>
-    <main className="mb-auto mt-20 bg-white grid content-center justify-center w-600">Palautelomake
-</main>
-    <div>
-    <form>
-      <label>Nimi: </label>
-        <input className="border-2 border-black mb-2" type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        <br />
-      <label>Email: </label>
-        <input className="border-2 border-black" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <br />
-        <br />
-      <label>Palaute: </label> 
-      <br />
-        <textarea rows="8" cols="100" className="border-2 border-black" value={feedback} onChange={(e) => setFeedback(e.target.value)}></textarea>
-        <br />
-      <button className="border-2 border-black" type="button" onClick={submitFeedback}>Lähetä lomake</button>
-    </form>
-    </div>
+      <main className="mb-auto mt-20 bg-white grid content-center justify-center w-600">Palautelomake
+      </main>
+      <div>
+        <form>
+          <label>Nimi: </label>
+          <input className="border-2 border-black mb-2" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+          <br />
+          <label>Email: </label>
+          <input className="border-2 border-black" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <br />
+          <br />
+          <label>Palaute: </label>
+          <br />
+          <textarea rows="8" cols="100" className="border-2 border-black" value={feedback} onChange={(e) => setFeedback(e.target.value)}></textarea>
+          <br />
+          <button className="border-2 border-black" type="button" onClick={submitFeedback}>Lähetä lomake</button>
+        </form>
+      </div>
     </>
   );
 }
