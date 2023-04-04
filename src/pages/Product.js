@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import NotFound from './NotFound';
+import { CartButton } from '../components/ShoppingCart';
 
 const URL = "http://localhost:3000/products/getproduct.php"
 
@@ -24,7 +25,7 @@ export default function Product() {
 
 
     return (
-        <> { (!product.length == 0) ?
+        <> { (!product.length === 0) ?
             <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600">
 
                 <div>
@@ -43,9 +44,7 @@ export default function Product() {
                                         <p className="text-xs text-alered font-bold sm:text-sm md:text-md lg:text-2xl">{(((100 - x.sale) / 100) * x.price).toFixed(2)} € ALE-HINTA!</p>
                                         <p className="text-xs font-bold sm:text-sm md:text-md lg:text-2xl line-through">{x.price} €</p>
                                         <br></br>
-                                        <button class="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
-                                          Lisää ostoskoriin
-                                        </button>
+                                        <CartButton />
                                     </div>
                                 </div>
                             );
@@ -60,10 +59,7 @@ export default function Product() {
                                     <div>{x.productname}<br /><br /><p className="font-normal max-w-2xl">{x.fulldescript}</p><br />
                                         <p className="text-3xl font-bold">{x.price} €</p>
                                         <br></br>
-                                        <button class="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded">
-                                          Lisää ostoskoriin
-                                        </button>
-
+                                        <CartButton />
                                     </div>
                                     
                                 </div>

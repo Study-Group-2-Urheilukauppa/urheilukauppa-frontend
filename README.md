@@ -12,11 +12,8 @@ pure-react-carousel
 
 ## Setting up the dev environment
 
-Install TailwindCSS as dev dependency:
-`npm install -D tailwindcss`
-
-Install normal dependencies:
-`npm install create-react-app react-router-dom axios @headlessui/react @heroicons/react pure-react-carousel`
+Install dependencies:
+`npm install`
 
 To run and build the project we use [Create React App](https://github.com/facebook/create-react-app).
 

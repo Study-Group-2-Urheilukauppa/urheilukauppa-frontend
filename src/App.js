@@ -17,7 +17,7 @@ import React from 'react'
 import Footer from './components/Footer'
 
 import Home from './pages/Home'
-import ShoppingCart from './pages/ShoppingCart'
+import { ShoppingCart } from './components/ShoppingCart'
 import Help from './pages/Help'
 import Product from './pages/Product'
 import DefinitelyNotAdmin from './pages/DefinitelyNotAdmin'
@@ -29,6 +29,7 @@ import NotFound from './pages/NotFound'
 import SignUp from './pages/SignUp'
 import AddProduct from './pages/AddProduct'
 import AddCategory from './pages/AddCategory'
+import Checkout from './pages/Checkout'
 
 export default function App() {
 
@@ -43,7 +44,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/Category/:categoryId" element={<Category />} />
-          <Route path="/ShoppingCart" element={<ShoppingCart />} />
+          <Route path="/Checkout" element={<Checkout />} />
           <Route path="/Help" element={<Help />} />
           <Route path="/Product/:productId" element={<Product />} />
           <Route path="/DefinitelyNotAdmin" element={<DefinitelyNotAdmin />} />
