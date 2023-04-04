@@ -31,7 +31,13 @@ function FeedbackForm() {
     <>
       <main className="mb-auto mt-20 bg-white grid content-center justify-center w-screen">Ota meihin yhteyttä!
       </main>
-      <div className='w-full absolute top-1/4 pl-12'>
+
+        <div className='w-full absolute grid content-center justify-center pb-12 pt-6'>
+            <p>Sähköpostiosoite: xxs.asiakaspalvelu@gmail.com / Puhelinnumero: +358 123456789 / Pääkonttori: Yliopistokatu 9 </p>
+        </div>
+
+
+      <div className='w-full absolute top-1/4 pl-12 pt-9'>
         <form>
           <p className='pb-4'>Täytä alla oleva yhteydenottolomake niin palaamme sinulle mahdollisimman nopeasti!</p>
           <label>Nimi: </label>
