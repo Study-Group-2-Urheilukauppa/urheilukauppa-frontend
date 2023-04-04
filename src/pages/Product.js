@@ -25,7 +25,7 @@ export default function Product() {
 
 
     return (
-        <> { (!product.length === 0) ?
+        <> { (!product.length == 0) ?
             <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600">
 
                 <div>
