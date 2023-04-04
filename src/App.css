@@ -54,7 +54,7 @@
 }
 .carousel__back-button, .carousel__next-button {
   position: absolute;
-  top: 40%;
+  top: 35%;
   transform: translateY(-50%);
   background-color: #333;
   color: #fff;
