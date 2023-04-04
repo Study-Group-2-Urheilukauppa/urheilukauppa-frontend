@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const URL = "http://localhost:3000/addProduct.php"
 
@@ -8,11 +8,29 @@ export default function AddProduct() {
         productname: "",
         categoryid: "",
         price: "",
-        sale: "NULL",
-        imgURL: "",
+        sale: null,
+        imgURL: "product-images/placeholder.png",
         descript: "",
         fulldescript: "",
       });
+
+      // KATEGORIAHOMMAA
+
+      const [categories, setCategories] = useState([]);
+
+      useEffect(() => {
+        fetch("http://localhost:3000/products/getcategories.php")
+          .then((response) => response.json())
+          .then((data) => {
+            setCategories(data);
+          })
+          .catch((error) => {
+            console.error(error);
+            alert("Virhe ladattaessa kategorioita!");
+          });
+      }, []);
+
+      // LOPPUU
     
       function handleSubmit(event) {
         event.preventDefault();
@@ -27,8 +45,8 @@ export default function AddProduct() {
               productname: "",
               categoryid: "",
               price: "",
-              sale: "NULL",
-              imgURL: "",
+              sale: null,
+              imgURL: "product-images/placeholder.png",
               descript: "",
               fulldescript: "",
             });
@@ -44,16 +62,12 @@ export default function AddProduct() {
         const { name, value } = event.target;
         setProduct((prevProduct) => ({
           ...prevProduct,
-          [name]: value,
+          [name]: value === "" ? null : value,
         }));
       }    
 
     return (
 
-        // PITÄÄ VIELÄ LISÄTÄ TUOTERYHMÄ-KOHTAAN DROPDOWNVALIKOLLA TUOTERYHMÄT JOTKA SE HAKEE KANNASTA!
-        // MYÖS PITÄÄ LISÄTÄ ESIM ALENNUS-KOHTAAN, ETTÄ SE ANTAA NULL ARVON JOS KENTÄN JÄTTÄÄ TYHJÄKSI
-        // TUOTEKUVAUS-OSIOIT PITÄÄ SAADA ISOMMIKSI JA TEKSTI NIIHIN JÄRKEVÄSTI
-        // KUVAN LISÄYS ???
 
 <>
 <main className="mb-auto mt-20 bg-white grid content-center justify-center w-600 font-bold">Tuotteen lisäys<br></br>
@@ -73,14 +87,20 @@ export default function AddProduct() {
       <br />
       <label className="font-semibold text-gray-800">
         Tuoteryhmä:
-        <input
-          type="text"
-          name="categoryid"
-          value={product.categoryid}
-          onChange={handleChange}
-          className="mt-1 block w-full border rounded-md py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
-          required
-        />
+        <select
+                name="categoryid"
+                value={product.categoryid}
+                onChange={handleChange}
+                className="mt-1 block w-full border rounded-md py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                required
+              >
+                <option value="">Valitse tuoteryhmä</option>
+                {categories.map((category) => (
+                  <option key={category.categoryid} value={category.categoryid}>
+                    {category.categoryname}
+                  </option>
+                ))}
+              </select>
       </label>
       <br />
       <label className="font-semibold text-gray-800">
@@ -103,8 +123,7 @@ export default function AddProduct() {
           value={product.sale}
           onChange={handleChange}
           className="mt-1 block w-full border rounded-md py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
-        
-        />
+/>
       </label>
       <br />
       <label className="font-semibold text-gray-800">
@@ -121,9 +140,10 @@ export default function AddProduct() {
       <br />
       <label className="font-semibold text-gray-800">
         Lyhyt tuotekuvaus:
-        <input
+        <textarea
           type="text"
           name="descript"
+          rows="6"
           value={product.descript}
           onChange={handleChange}
           className="mt-1 block w-full border rounded-md py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
@@ -133,9 +153,10 @@ export default function AddProduct() {
       <br />
       <label className="font-semibold text-gray-800">
         Tuotekuvaus kokonaan:
-        <input
+        <textarea
           type="text"
           name="fulldescript"
+          rows="20"
           value={product.fulldescript}
           onChange={handleChange}
           className="mt-1 block w-full border rounded-md py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
