@@ -27,6 +27,7 @@ import Category from './pages/Category'
 import SearchResult from './pages/SearchResult'
 import NotFound from './pages/NotFound'
 import SignUp from './pages/SignUp'
+import Login from './pages/Login'
 import AddProduct from './pages/AddProduct'
 import AddCategory from './pages/AddCategory'
 import Checkout from './pages/Checkout'
@@ -50,6 +51,7 @@ export default function App() {
           <Route path="/DefinitelyNotAdmin" element={<DefinitelyNotAdmin />} />
           <Route path="/SearchResult" element={<SearchResult />} />
           <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/Login" element={<Login />} />
           <Route path="/AddProduct" element={<AddProduct />} />
           <Route path="/AddCategory" element={<AddCategory />} />
         </Routes>
