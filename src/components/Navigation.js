@@ -4,6 +4,7 @@ import Search from '../components/Search'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { ShoppingCart } from './ShoppingCart'
+import { LoginButton } from './LoginButton'
 
 const URL = "http://localhost:3000/products/getcategories.php"
 
@@ -51,6 +52,7 @@ export default function Navigation() {
             </div>
             <Search />
             <ShoppingCart />
+            <LoginButton />
           </div>
         </div>
       </nav>
