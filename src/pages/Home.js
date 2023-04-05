@@ -41,23 +41,11 @@ export default function Home() {
                         visibleSlides={4}
                         className="carousel-provider"
                     >
-
-                        <div className="relative h-full">
-                            <ButtonBack role="button" aria-label="slide backward" className="absolute z-30 left-0 ml-8 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer" id="prev">
-                                <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 1L1 7L7 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </ButtonBack>
-                            <ButtonNext role="button" aria-label="slide forward" className="absolute z-30 right-0 mr-8 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400" id="next">
-                                <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 1L7 7L1 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </ButtonNext>
-                            <Slider className="slider">
-                                {product.map(x => (
-
-                                    <Slide index={x.productid} key={x.productid} className="slide hover:bg-secondary hover:bg-opacity-20">
-                                        <Link to={`../product/${x.productid}`} key={x.productid}>
+                        <Slider className="slider">
+                            {product.map((x, index) => (
+                                <Slide index={index} key={x.productid} className="slide hover:bg-secondary hover:bg-opacity-20">
+                                    <Link to={`../product/${x.productid}`} key={x.productid}>
+                                        {
                                             <div className="max-w-2xl max-h-2xl p-2">
                                                 <img src={process.env.PUBLIC_URL + "../" + x.imgURL} alt={x.productname} />
                                                 <p className="text-xs sm:text-sm md:text-md lg:text-lg font-bold">{x.productname}</p>
@@ -66,13 +54,25 @@ export default function Home() {
                                                 <p className="text-xs text-alered font-bold sm:text-sm md:text-md lg:text-2xl">{(((100 - x.sale) / 100) * x.price).toFixed(2)} € ALE-HINTA!</p>
                                                 <p className="text-xs font-bold sm:text-sm md:text-md lg:text-2xl line-through">{x.price} €</p>
                                             </div>
-                                        </Link>
-                                    </Slide>
-
-                                ))}
-                            </Slider>
-                        </div>
-
+                                        }
+                                    </Link>
+                                    {index === 0 && (
+                                        <ButtonBack role="button" aria-label="slide backward" className="absolute z-30 left-0 ml-8 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer" id="prev">
+                                            <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7 1L1 7L7 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                                            </svg>
+                                        </ButtonBack>
+                                    )}
+                                    {index === 3 && (
+                                        <ButtonNext role="button" aria-label="slide forward" className="absolute z-30 right-0 mr-8 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400" id="next">
+                                            <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 1L7 7L1 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                                            </svg>
+                                        </ButtonNext>
+                                    )}
+                                </Slide>
+                            ))}
+                        </Slider>
                     </CarouselProvider>
                 </div>
 
