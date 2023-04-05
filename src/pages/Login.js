@@ -9,14 +9,6 @@ export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
-    const handleUsernameChange = (event) => {
-        setUsername(event.target.value);
-    };
-
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
-    };
-
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -44,16 +36,16 @@ export default function Login() {
     return (
         <div>
             <main className="mx-20 mb-auto mt-40 bg-white grid content-center justify-center w-600">
-                <form className='flex flex-col' onSubmit={handleSubmit}>
-                    <label>
+                <form className="flex flex-col space-y-2 max-w-sm mx-auto mt-8 p-4 rounded-md shadow-md bg-secondary w-96" onSubmit={handleSubmit}>
+                    <label className="font-semibold text-gray-800"> 
                         Username:
-                        <input type="text" value={username} onChange={handleUsernameChange} />
+                        <input className="mt-1 block w-full border rounded-md py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" type="text" value={username} onChange={(e) => setUsername(e.target.value)} required/>
                     </label>
-                    <label>
+                    <label className="font-semibold text-gray-800">
                         Password:
-                        <input type="password" value={password} onChange={handlePasswordChange} />
+                        <input className="mt-1 block w-full border rounded-md py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                     </label>
-                    <button type="submit">Log in</button>
+                    <button className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded" type="submit">Kirjaudu sisään</button>
                 </form>
             </main>
         </div>
