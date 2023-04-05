@@ -47,7 +47,7 @@ export default function Login() {
                         <input className="mt-1 block w-full border rounded-md py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                     </label>
                     <button className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded" type="submit">Kirjaudu sisään</button>
-                    <p>Ei tunnuksia?</p>
+                    <label>Ei tunnuksia?</label>
                     <Link to='/SignUp'>
                         <button className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded">Luo tunnus tästä</button>
                     </Link>
