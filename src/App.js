@@ -31,6 +31,7 @@ import Login from './pages/Login'
 import AddProduct from './pages/AddProduct'
 import AddCategory from './pages/AddCategory'
 import Checkout from './pages/Checkout'
+import ProtectedRoutes from './components/ProtectedRoutes';
 
 export default function App() {
 
@@ -48,12 +49,15 @@ export default function App() {
           <Route path="/Checkout" element={<Checkout />} />
           <Route path="/Help" element={<Help />} />
           <Route path="/Product/:productId" element={<Product />} />
-          <Route path="/DefinitelyNotAdmin" element={<DefinitelyNotAdmin />} />
           <Route path="/SearchResult" element={<SearchResult />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/AddProduct" element={<AddProduct />} />
-          <Route path="/AddCategory" element={<AddCategory />} />
+
+          <Route element={ <ProtectedRoutes />}>
+            <Route path="/DefinitelyNotAdmin" element={<DefinitelyNotAdmin />} />
+            <Route path="/AddProduct" element={<AddProduct />} />
+            <Route path="/AddCategory" element={<AddCategory />} />
+          </Route>
         </Routes>
       </div>
 
