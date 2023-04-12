@@ -84,8 +84,25 @@
   background-size: cover;
 }
 
+.hamburger{
+  display: none;
+}
+
+
 @media only screen and (max-width: 930px) {
   .carousel__next-button, .carousel__back-button {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 930px) {
+  .test {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 930px) {
+  .hamburger {
+    display: block;
   }
 }
