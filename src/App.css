@@ -65,11 +65,11 @@
   margin: 0 10px;
 }
 .carousel__next-button {
-  top: 30%;
+  top: 20%;
   right: 0;
 }
 .carousel__back-button {
-  top: 30%;
+  top: 20%;
   left: 0;
 }
 
@@ -82,4 +82,10 @@
 .salebg{
   background-image: url(images/sale.png);
   background-size: cover;
+}
+
+@media only screen and (max-width: 930px) {
+  .carousel__next-button, .carousel__back-button {
+    display: none;
+  }
 }
