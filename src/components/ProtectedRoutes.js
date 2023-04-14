@@ -3,9 +3,9 @@ import { Navigate, Outlet } from 'react-router-dom'
 
 export default function ProtectedRoutes() {
 
-    let isAuthenticated = localStorage.getItem("role")
+    let isAuthenticated = localStorage.getItem("token")
 
   return ( 
-    isAuthenticated !== "admin" ? <Navigate to="Login" /> : <Outlet/> 
+    isAuthenticated !== "token" ? <Outlet/> : <Navigate to="Login" />
   )
 }
