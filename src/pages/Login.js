@@ -1,12 +1,18 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
+import { useNavigate, Link} from 'react-router-dom';
+
 
 const URL = "http://localhost:3000/login.php";
 
 export default function Login() {
+    const { setAuth } = useAuth();
+
     const navigate = useNavigate();
+    
+    
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -22,15 +28,12 @@ export default function Login() {
             .then(response => {
                 console.log(response.data)
                 if (response.data.success) {
-                    // Redirect the user to a different page
-                    localStorage.setItem("token", response.data.token)
-
-                    if (response.data.role === 'admin') {
-                        navigate('/DefinitelyNotAdmin')
-                    }
-                    else {
-                        navigate('/')
-                    }
+                    const token = response?.data?.token;
+                    const role = response?.data?.role;
+                    setAuth({username, password, role, token})
+                    setUsername('');
+                    setPassword('');
+                    navigate("/DefinitelyNotAdmin")
                 } else {
                     // Display an error message
                     alert(response.data.message);
