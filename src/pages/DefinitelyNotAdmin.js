@@ -26,9 +26,11 @@ export default function AdminPage() {
             Tilausten käsittely
         </button>
 
+        <Link to='/Inventory'>
         <button className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
             Varasto
         </button>
+        </Link>
 
     </div>
     </main>

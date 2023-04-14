@@ -31,6 +31,7 @@ import Login from './pages/Login'
 import AddProduct from './pages/AddProduct'
 import AddCategory from './pages/AddCategory'
 import Checkout from './pages/Checkout'
+import Inventory from './pages/Inventory'
 import ProtectedRoutes from './components/ProtectedRoutes';
 
 export default function App() {
@@ -57,6 +58,7 @@ export default function App() {
             <Route path="/DefinitelyNotAdmin" element={<DefinitelyNotAdmin />} />
             <Route path="/AddProduct" element={<AddProduct />} />
             <Route path="/AddCategory" element={<AddCategory />} />
+            <Route path="/Inventory" element={<Inventory />} />
           </Route>
         </Routes>
       </div>
