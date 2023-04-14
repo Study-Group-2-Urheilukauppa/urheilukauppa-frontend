@@ -24,6 +24,7 @@ export default function Login() {
                 if (response.data.success) {
                     // Redirect the user to a different page
                     localStorage.setItem("role", response.data.role)
+                    localStorage.setItem("token", response.data.token)
 
                     if (response.data.role === 'admin') {
                         navigate('/DefinitelyNotAdmin')
