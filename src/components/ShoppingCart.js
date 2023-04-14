@@ -2,6 +2,7 @@ import React from 'react'
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 
 function ShoppingCart() {
+
     return (
         <>
             <div className="ml-4 flow-root lg:ml-6">
@@ -18,10 +19,23 @@ function ShoppingCart() {
     )
 }
 
-function CartButton() {
+function CartButton({id}) {
+
+    function setCart() {
+
+        const list = [];
+
+        if (window.localStorage.getItem("cart")) {
+            list.push(window.localStorage.getItem("cart"));
+        }
+
+        list.push(id);
+        window.localStorage.setItem("cart", list);
+    }
+   
     return (
         <>
-        <button class="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
+        <button onClick={() => setCart({id})} class="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
             Lisää ostoskoriin
         </button>
         </>
