@@ -29,30 +29,24 @@ function FeedbackForm() {
 
   return (
     <>
-      <main className="mb-auto mt-20 bg-white grid content-center justify-center w-screen">Ota meihin yhteyttä!
-      </main>
+      <main className="mb-auto mt-20 bg-white grid content-center justify-center w-600 font-bold">Ota meihin yhteyttä!<br></br><br></br>
+      <p>Sähköpostiosoite: xxs.asiakaspalvelu@gmail.com<br/>Puhelinnumero: +358 123456789<br/>Pääkonttori: Yliopistokatu 9 </p>
+        
+      <div>
+        <form className="flex flex-col space-y-2 mx-auto mt-8 p-4 rounded-md shadow-md bg-white w-full">
+          <p>Täytä alla oleva yhteydenottolomake niin palaamme sinulle mahdollisimman nopeasti!</p><br></br>
+          <label className="font-semibold text-gray-800">Nimi: </label>
+          <input className="mt-1 block w-96 border rounded-md py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+          <label className="font-semibold text-gray-800">Email: </label>
+          <input className="mt-1 block w-96 border rounded-md py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
 
-        <div className='w-full absolute grid content-center justify-center pb-12 pt-6'>
-            <p>Sähköpostiosoite: xxs.asiakaspalvelu@gmail.com / Puhelinnumero: +358 123456789 / Pääkonttori: Yliopistokatu 9 </p>
-        </div>
-
-
-      <div className='w-full absolute top-1/4 pl-12 pt-9'>
-        <form>
-          <p className='pb-4'>Täytä alla oleva yhteydenottolomake niin palaamme sinulle mahdollisimman nopeasti!</p>
-          <label>Nimi: </label>
-          <input className="border-2 border-primary bg-[#F1F1F1] mb-2 hover:bg-fifth w-56 ml-1" type="text" value={name} onChange={(e) => setName(e.target.value)} />
-          <label className='ml-16'>Email: </label>
-          <input className="border-2 border-primary bg-[#F1F1F1] hover:bg-fifth w-56" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <label className="font-semibold text-gray-800">Palaute: </label>
+          <textarea rows="8" cols="100" className="mt-1 block w-full border rounded-md py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" value={feedback} onChange={(e) => setFeedback(e.target.value)}></textarea>
           <br />
-          <br />
-          <label>Palaute: </label>
-          <br />
-          <textarea rows="8" cols="100" className="border-2 bg-[#F1F1F1] border-primary mb-2 hover:bg-fifth" value={feedback} onChange={(e) => setFeedback(e.target.value)}></textarea>
-          <br />
-          <button className="bg-secondary text-[#fff] pt-2 pl-3 pb-2 pr-3 inline-block border-primary border-2 rounded-3xl hover:bg-fourth '" type="button" onClick={submitFeedback}>Lähetä lomake</button>
+          <button  className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded" type="button" onClick={submitFeedback}>Lähetä lomake</button>
         </form>
       </div>
+      </main>
     </>
   );
 }
