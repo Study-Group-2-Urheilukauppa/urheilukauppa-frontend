@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -6,32 +6,28 @@ const URL = 'http://localhost:3000/checkuser.php';
 
 export default function ProtectedRoutes () {
 
-  const [role, setRole] = useState("")
+  const [role, setRole] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    
-    
-
     axios.get(URL, {
-      withCredentials : true
+      withCredentials: true
     })
-        .then((response) => {
-          setRole(response.data.role)
-          
-            
-        }).catch(error => {
-            alert(error)
-        })
-}, [])
+      .then((response) => {
+        setRole(response.data.role);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        alert(error);
+        setIsLoading(false);
+      })
+  }, [])
 
-if (role === undefined) {
-  return <>Still loading...</>;
-}
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    role === "admin" ? <Outlet/> : <Navigate to="/"/> 
-        
-        
+    role === "admin" ? <Outlet /> : <Navigate to="/" />
   )
 }
-
