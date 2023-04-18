@@ -1,16 +1,37 @@
 import { Navigate, Outlet } from 'react-router-dom'
-import useAuth from '../hooks/useAuth'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-const ProtectedRoutes = () => {
-  const { auth } = useAuth();
-  console.log(auth)
-  
+const URL = 'http://localhost:3000/checkuser.php';
+
+export default function ProtectedRoutes () {
+
+  const [role, setRole] = useState("")
+
+  useEffect(() => {
+    
+    
+
+    axios.get(URL, {
+      withCredentials : true
+    })
+        .then((response) => {
+          setRole(response.data.role)
+          
+            
+        }).catch(error => {
+            alert(error)
+        })
+}, [])
+
+if (role === undefined) {
+  return <>Still loading...</>;
+}
 
   return (
-    auth?.role?.includes('admin')
-        ? <Outlet/>
-        : <Navigate to="/"/>
+    role === "admin" ? <Outlet/> : <Navigate to="/"/> 
+        
+        
   )
 }
 
-export default ProtectedRoutes;
