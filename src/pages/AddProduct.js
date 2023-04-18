@@ -14,6 +14,8 @@ export default function AddProduct() {
         fulldescript: "",
       });
 
+      const [alertMessage, setAlertMessage] = useState("");
+
       // KATEGORIAHOMMAA
 
       const [categories, setCategories] = useState([]);
@@ -50,11 +52,11 @@ export default function AddProduct() {
               descript: "",
               fulldescript: "",
             });
-            alert("Tuotteen lisäys onnistui!");
+            setAlertMessage("Tuotteen lisäys onnistui!");
           })
           .catch((error) => {
             console.error(error);
-            alert("Tuotteen lisäys epäonnistui!");
+            setAlertMessage("Tuotteen lisäys epäonnistui!");
           });
       }
     
@@ -165,6 +167,7 @@ export default function AddProduct() {
       </label>
       <br />
       <button type="submit" className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded">Lisää tuote</button>
+      {alertMessage && <p className="text-red-500 mt-2">{alertMessage}</p>}
     </form>
 </div>
 </main>
