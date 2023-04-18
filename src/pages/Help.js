@@ -4,6 +4,7 @@ function FeedbackForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [feedback, setFeedback] = useState('');
+  const [alertMessage, setAlertMessage] = useState("");
 
   const submitFeedback = async () => {
     const response = await fetch('http://localhost:3000/Feedback.php', {
@@ -17,13 +18,14 @@ function FeedbackForm() {
         feedback
       })
     });
+ 
 
     const result = await response.json();
 
     if (result.success) {
-      alert('Lomake lähetetty onnistuneesti!');
+      setAlertMessage('Lomake lähetetty onnistuneesti!');
     } else {
-      alert('Ilmeni ongelma lomakkeen lähtettämisessä. Yritä myöhemmin uudelleen.');
+      setAlertMessage('Ilmeni ongelma lomakkeen lähtettämisessä. Yritä myöhemmin uudelleen.');
     }
   };
 
@@ -43,7 +45,8 @@ function FeedbackForm() {
           <label className="font-semibold text-gray-800">Palaute: </label>
           <textarea rows="8" cols="100" className="mt-1 block w-full border rounded-md py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" value={feedback} onChange={(e) => setFeedback(e.target.value)}></textarea>
           <br />
-          <button  className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded" type="button" onClick={submitFeedback}>Lähetä lomake</button>
+          <button  className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded w-40" type="button" onClick={submitFeedback}>Lähetä lomake</button>
+          <br />{alertMessage && <p className="text-red-500 mt-2">{alertMessage}</p>}
         </form>
       </div>
       </main>
