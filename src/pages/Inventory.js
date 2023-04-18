@@ -17,6 +17,22 @@ export default function Inventory() {
             })
     }, [])
 
+    const updateAmount = (productid, amount) => {
+        axios.post('http://localhost:3000/products/allproducts.php', {
+            productid,
+            amount
+        }).then(() => {
+            setProducts(prevProducts => {
+                const updatedProducts = [...prevProducts];
+                const productIndex = updatedProducts.findIndex(product => product.productid === productid);
+                updatedProducts[productIndex].amount = amount;
+                return updatedProducts;
+            });
+        }).catch(error => {
+            alert(error)
+        })
+    }
+
     return (
         <>
             {products.length > 0 ? (
@@ -30,10 +46,15 @@ export default function Inventory() {
                                 <b>TUOTERYHMÄ ID:</b> {result.categoryid}<br></br>
                                 <b>TUOTERYHMÄN NIMI:</b> {result.categoryname}<br></br>
                                 {result.sale && (
-                                <p><b>ALE-HINTA:</b> {(((100 - result.sale) / 100) * result.price).toFixed(2)}</p>
-                            )}
-                            <b>HINTA: </b>{result.price} €<br></br>
-                            <b>MÄÄRÄ: </b>{result.amount} kpl
+                                    <p><b>ALE-HINTA:</b> {(((100 - result.sale) / 100) * result.price).toFixed(2)}</p>
+                                )}
+                                <b>HINTA: </b>{result.price} €<br></br>
+                                <b>MÄÄRÄ: </b>
+                                <input type="number" class="varasto" value={result.amount} onChange={(event) => {
+                                    const newAmount = parseInt(event.target.value);
+                                    updateAmount(result.productid, newAmount);
+                                }}/><br></br><br></br>
+                                <button className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl" onClick={() => updateAmount(result.productid, result.amount)}>Päivitä</button>
                             </div>
                         ))}
                     </div>
