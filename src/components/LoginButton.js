@@ -55,7 +55,7 @@ function LoginButton() {
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer font-bold"
                   onClick={handleRegisterClick}
                 >
-                  Registeröidy
+                  Rekisteröidy
                 </div>
               )}
             </div>
