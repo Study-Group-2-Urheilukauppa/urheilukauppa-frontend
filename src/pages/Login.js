@@ -1,13 +1,14 @@
 import axios from 'axios';
 import { useState } from 'react';
-import useAuth from '../hooks/useAuth';
 import { useNavigate, Link} from 'react-router-dom';
+import Cookies from 'js-cookie';
+
 
 
 const URL = "http://localhost:3000/login.php";
 
 export default function Login() {
-    const { setAuth } = useAuth();
+    
 
     const navigate = useNavigate();
     
@@ -28,9 +29,10 @@ export default function Login() {
             .then(response => {
                 console.log(response.data)
                 if (response.data.success) {
-                    const token = response?.data?.token;
-                    const role = response?.data?.role;
-                    setAuth({username, password, role, token})
+                    const token = response.data.token;
+                    
+                    Cookies.set('token', token)
+        
                     setUsername('');
                     setPassword('');
                     navigate("/DefinitelyNotAdmin")
