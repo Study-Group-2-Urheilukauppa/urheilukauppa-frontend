@@ -7,6 +7,7 @@ function LoginButton() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const isLogged = Cookies.get('token') !== undefined;
+  const isAdmin = Cookies.get('role') === 'admin'; // assuming role is stored in a cookie
 
   function handleMenuClick() {
     setIsOpen(!isOpen);
@@ -20,12 +21,18 @@ function LoginButton() {
   function handleLogoutClick() {
     setIsOpen(false);
     Cookies.remove('token');
+    Cookies.remove('role');
     navigate('/');
   }
 
   function handleRegisterClick() {
     setIsOpen(false);
     navigate('/SignUp');
+  }
+
+  function handleAdminClick() {
+    setIsOpen(false);
+    navigate('/DefinitelyNotAdmin');
   }
 
   const loginText = isLogged ? 'Kirjaudu ulos' : 'Kirjaudu';
@@ -58,6 +65,14 @@ function LoginButton() {
                   Rekisteröidy
                 </div>
               )}
+              {isLogged && isAdmin && ( // only show if user is logged in and has admin role
+                <div
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer font-bold"
+                  onClick={handleAdminClick}
+                >
+                  Hallintapaneeli
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -67,3 +82,5 @@ function LoginButton() {
 }
 
 export { LoginButton };
+
+

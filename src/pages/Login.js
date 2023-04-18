@@ -30,9 +30,10 @@ export default function Login() {
                 console.log(response.data)
                 if (response.data.success) {
                     const token = response.data.token;
-                    
+                    const role = response.data.role
                     Cookies.set('token', token)
-        
+                    Cookies.set('role', role)
+
                     setUsername('');
                     setPassword('');
                     navigate("/DefinitelyNotAdmin")
