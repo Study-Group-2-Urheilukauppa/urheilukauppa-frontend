@@ -1,24 +1,36 @@
-import React, { useState } from 'react'
-import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline'
+import React, { useState } from 'react';
+import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 function LoginButton() {
-  const navigate = useNavigate()
-  const [isOpen, setIsOpen] = useState(false)
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+  const isLogged = Cookies.get('token') !== undefined;
 
   function handleMenuClick() {
-    setIsOpen(!isOpen)
+    setIsOpen(!isOpen);
   }
 
   function handleLoginClick() {
-    setIsOpen(false)
-    navigate("/login")
+    setIsOpen(false);
+    navigate('/login');
+  }
+
+  function handleLogoutClick() {
+    setIsOpen(false);
+    Cookies.remove('token');
+    navigate('/');
   }
 
   function handleRegisterClick() {
-    setIsOpen(false)
-    navigate("/SignUp")
+    setIsOpen(false);
+    navigate('/SignUp');
   }
+
+  const loginText = isLogged ? 'Kirjaudu ulos' : 'Kirjaudu';
+
+  const loginClickHandler = isLogged ? handleLogoutClick : handleLoginClick;
 
   return (
     <div className="ml-4 flow-root lg:ml-6 relative">
@@ -34,22 +46,24 @@ function LoginButton() {
             <div className="bg-secondary shadow-lg rounded-md">
               <div
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer font-bold"
-                onClick={handleLoginClick}
+                onClick={loginClickHandler}
               >
-                Kirjaudu
+                {loginText}
               </div>
-              <div
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer font-bold"
-                onClick={handleRegisterClick}
-              >
-                Registeröidy
-              </div>
+              {!isLogged && (
+                <div
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer font-bold"
+                  onClick={handleRegisterClick}
+                >
+                  Registeröidy
+                </div>
+              )}
             </div>
           </div>
         )}
       </div>
     </div>
-  )
+  );
 }
 
 export { LoginButton };
