@@ -61,7 +61,7 @@ export default function Home() {
                                             <div className="max-w-2xl max-h-2xl p-2">
                                                 <img src={process.env.PUBLIC_URL + "../" + x.imgURL} alt={x.productname} />
                                                 <p className="text-xs sm:text-sm md:text-md lg:text-lg font-bold">{x.productname}</p>
-                                                <p className="text-xs hidden md:flex sm:text-sm md:text-md lg:text-lg">{x.descript}</p>
+                                                <p className="description text-xs hidden md:flex sm:text-sm md:text-md lg:text-lg">{x.descript}</p>
 
                                                 <p className="text-xs text-alered font-bold sm:text-sm md:text-md lg:text-2xl">{(((100 - x.sale) / 100) * x.price).toFixed(2)} € ALE-HINTA!</p>
                                                 <p className="text-xs font-bold sm:text-sm md:text-md lg:text-2xl line-through">{x.price} €</p>
