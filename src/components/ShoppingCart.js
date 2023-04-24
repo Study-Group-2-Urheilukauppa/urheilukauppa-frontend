@@ -31,8 +31,11 @@ function CartButton({id}) {
     function setCart() {
 
         let cart = {};
-        cart = JSON.parse(window.localStorage.getItem("cart"));
-
+        
+        if (window.localStorage.getItem("cart")) {
+            cart = JSON.parse(window.localStorage.getItem("cart"));
+        }
+        
         if (cart[id]) {
 
             let tempItem = cart[id];
