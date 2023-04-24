@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 
 function ShoppingCart() {
+
+    const [itemCount, setItemCount] = useState("0");
+
+    let cart = {};
+    cart = JSON.parse(window.localStorage.getItem("cart"));
+
+   // setItemCount();
 
     return (
         <>
@@ -11,7 +18,7 @@ function ShoppingCart() {
                         className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                         aria-hidden="true"
                 />
-                <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{itemCount}</span>
                 <span className="sr-only">items in cart, view bag</span>
             </div>
             </div>
@@ -23,14 +30,21 @@ function CartButton({id}) {
 
     function setCart() {
 
-        const list = [];
+        let cart = {};
+        cart = JSON.parse(window.localStorage.getItem("cart"));
 
-        if (window.localStorage.getItem("cart")) {
-            list.push(window.localStorage.getItem("cart"));
+        if (cart[id]) {
+
+            let tempItem = cart[id];
+            tempItem.amount += 1;
+            cart[id] = tempItem;
+
+        } else {
+
+            cart[id] = {amount: 1};
         }
-
-        list.push(id);
-        window.localStorage.setItem("cart", list);
+    
+        window.localStorage.setItem("cart", JSON.stringify(cart));
     }
    
     return (
