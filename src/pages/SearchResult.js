@@ -5,6 +5,19 @@ export default function SearchResult() {
   const location = useLocation();
   const results = location.state.results;
 
+  if (results.length === 0) {
+    return (
+      <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600">
+        <div className="text-xl font-bold text-center">Ei hakutuloksia<br /><br /></div>
+        <div className='w-full pt-3 pb-6 text-center'>
+          <Link to='/' className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
+            Tästä takasin etusivulle
+          </Link>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600">
       <div className="grid grid-cols-4 gap-5">
@@ -23,10 +36,10 @@ export default function SearchResult() {
 
       </div>
       <div className='w-full pt-3 pb-6 text-center'>
-      <Link to='/' className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
-                    Tästä takasin etusivulle</Link>
+        <Link to='/' className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
+          Tästä takasin etusivulle
+        </Link>
       </div>
     </main>
-  )
+  );
 }
-
