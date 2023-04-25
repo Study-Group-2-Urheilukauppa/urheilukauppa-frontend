@@ -22,6 +22,10 @@ export default function SearchResult() {
         ))}
 
       </div>
+      <div className='w-full pt-3 text-center'>
+      <Link to='/' className=' bg-secondary text-[#fff] pt-2 pl-3 pb-2 pr-3 inline-block border-primary border-2 rounded-3xl hover:bg-fourth'>
+                    Tästä takasin etusivulle</Link>
+      </div>
     </main>
   )
 }
