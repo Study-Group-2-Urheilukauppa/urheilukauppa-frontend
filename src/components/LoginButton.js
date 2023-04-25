@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
@@ -8,9 +8,25 @@ function LoginButton() {
   const [isOpen, setIsOpen] = useState(false);
   const isLogged = Cookies.get('token') !== undefined;
   const isAdmin = Cookies.get('role') === 'admin'; // assuming role is stored in a cookie
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
 
   function handleMenuClick() {
     setIsOpen(!isOpen);
+  }
+
+  function handleLinkClick() {
+    setIsOpen(false);
   }
 
   function handleLoginClick() {
@@ -40,7 +56,7 @@ function LoginButton() {
   const loginClickHandler = isLogged ? handleLogoutClick : handleLoginClick;
 
   return (
-    <div className="ml-4 flow-root lg:ml-6 relative">
+    <div className="ml-4 flow-root lg:ml-6 relative" ref={menuRef}>
       <div className="group -m-2 flex items-center p-2">
         <button type="button" onClick={handleMenuClick}>
           <ArrowRightOnRectangleIcon
@@ -49,18 +65,24 @@ function LoginButton() {
           />
         </button>
         {isOpen && (
-          <div className="absolute right-0 mt-24">
+          <div className="absolute right-0 mt-24" onMouseLeave={() => setIsOpen(false)}>
             <div className="bg-secondary shadow-lg rounded-md">
               <div
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer font-bold"
-                onClick={loginClickHandler}
+                onClick={() => {
+                  handleLinkClick();
+                  loginClickHandler();
+                }}
               >
                 {loginText}
               </div>
               {!isLogged && (
                 <div
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer font-bold"
-                  onClick={handleRegisterClick}
+                  onClick={() => {
+                    handleLinkClick();
+                    handleRegisterClick();
+                  }}
                 >
                   Rekisteröidy
                 </div>
@@ -68,7 +90,10 @@ function LoginButton() {
               {isLogged && isAdmin && ( // only show if user is logged in and has admin role
                 <div
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer font-bold"
-                  onClick={handleAdminClick}
+                  onClick={() => {
+                    handleLinkClick();
+                    handleAdminClick();
+                  }}
                 >
                   Hallintapaneeli
                 </div>
