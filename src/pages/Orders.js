@@ -26,9 +26,13 @@ function Orders() {
                 <h1 className="text-2xl font-bold mb-4">Tilaukset</h1>              
                 {order.map((item) => (
                     <div key={item.ordernum} className="border p-4 mb-4">
+                        <p className="text-lg font-medium">Tilausnumero: {item.ordernum}</p>
                         <p className="text-lg font-medium">AsiakasID: {item.clientid}</p>
                         <p className="text-lg font-medium">TilausPvm: {item.orderdate}</p>
                         <p className="text-lg font-medium">Tila: {item.orderstate}</p>
+                        <p className="text-lg font-medium">Tuotenumero: {item.productid}</p>
+                        <p className="text-lg font-medium">rivinumero: {item.rownum}</p>
+                        <p className="text-lg font-medium">Kappalemäärä: {item.pcs}</p>
                     </div>
                 ))}
             </div>
