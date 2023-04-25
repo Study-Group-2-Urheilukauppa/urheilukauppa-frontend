@@ -7,11 +7,13 @@ const URL = "http://localhost:3000/products/allproducts.php"
 export default function Inventory() {
 
     const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         axios.get(URL)
             .then((response) => {
                 setProducts(response.data)
+                setIsLoading(false);
             }).catch(error => {
                 alert(error)
             })
@@ -35,7 +37,9 @@ export default function Inventory() {
 
     return (
         <>
-            {products.length > 0 ? (
+            {isLoading ? (
+                <div className="pt-40 text-center text-2xl font-bold">Ladataan sisältöä...</div>
+            ) : products.length > 0 ? (
                 <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600">
                     <div className="text-md font-bold md:text-lg lg:text-2xl">Varasto:</div><br></br>
                     <div className="grid grid-cols-4 gap-5">
