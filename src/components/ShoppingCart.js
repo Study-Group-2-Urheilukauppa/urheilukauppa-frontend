@@ -8,8 +8,6 @@ function ShoppingCart() {
     let cart = {};
     cart = JSON.parse(window.localStorage.getItem("cart"));
 
-   // setItemCount();
-
     return (
         <>
             <div className="ml-4 flow-root lg:ml-6">
@@ -34,7 +32,8 @@ function CartRead(id) {
     }
     
     if (cart[id]) {
-        return true
+        let tempItem = cart[id];
+        return tempItem.amount
 
     } else {
         return false
@@ -63,6 +62,24 @@ function CartUpdate(id, amount) {
     window.localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+function CartGetList() {
+    let cart = {};
+    let cartList = [];
+    let cartStr = ""
+        
+    if (window.localStorage.getItem("cart")) {
+        cart = JSON.parse(window.localStorage.getItem("cart"));
+        cartList = Object.keys(cart)
+        cartStr = cartList.toString()
+
+        return cartStr
+        
+    } else {
+
+        return false
+    }
+}
+
 function CartButton({id}) {
 
     const [isCarted, setIsCarted] = useState(false);
@@ -70,6 +87,7 @@ function CartButton({id}) {
     function setCart() {
         CartUpdate(id);
         setIsCarted(true);
+        CartGetList();
     }
    
     return (
@@ -88,4 +106,4 @@ function CartButton({id}) {
     )
 }
 
-export {ShoppingCart, CartButton}
+export {ShoppingCart, CartButton, CartGetList, CartRead}
