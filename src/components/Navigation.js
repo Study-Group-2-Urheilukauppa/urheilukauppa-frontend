@@ -78,8 +78,10 @@ export default function Navigation() {
                 </div>
               )}
             </div>
-            
+
+            <div className='searchbar pl-4'>
             <Search />
+            </div>
             <ShoppingCart />
             <LoginButton />
           </div>
