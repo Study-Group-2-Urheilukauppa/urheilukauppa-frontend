@@ -65,17 +65,21 @@ export default function Navigation() {
                 </svg>
               </button>
               {isMenuOpen && (
-                <div className="smooth absolute top-16 p-5 left-0 w-screen bg-fifth ">
-                  {categories.map((x) => (
-                    <Link
-                      className="block py-2 px-4 hover:bg-gray-100"
-                      to={`/category/${x.categoryid}`}
-                      key={x.categoryid}
-                    >
-                      {x.categoryname}
-                    </Link>
-                  ))}
-                </div>
+                <div
+                className="smooth absolute top-16 p-5 left-0 w-screen bg-fifth"
+                onMouseLeave={() => setIsMenuOpen(false)}
+              >
+                {categories.map((x) => (
+                  <Link
+                    className="block py-2 px-4 hover:bg-gray-100"
+                    to={`/category/${x.categoryid}`}
+                    key={x.categoryid}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {x.categoryname}
+                  </Link>
+                ))}
+              </div>
               )}
             </div>
 
