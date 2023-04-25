@@ -109,9 +109,10 @@
     display: none;
   }
 
-  .responsiveboxes{
-    display: block;
-  }
+.searchbar{
+  width: 100%;
+}
+
 }
 
 .varasto{
