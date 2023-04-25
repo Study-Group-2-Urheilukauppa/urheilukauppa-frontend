@@ -26,7 +26,7 @@ export default function SearchResult() {
           <Link to={`../product/${result.productid}`} key={result.productid} className="hover:bg-secondary hover:bg-opacity-20 p-2">
             <img src={process.env.PUBLIC_URL + "../" + result.imgURL} alt={result.productname}></img>
             <div className="text-xl font-bold">{result.productname}</div>
-            <div>{result.descript}</div>
+            <div className='description'>{result.descript}</div>
             {result.sale && (
               <p className="text-xl text-alered font-bold">{(((100 - result.sale) / 100) * result.price).toFixed(2)} € ALE-HINTA!</p>
             )}
