@@ -31,7 +31,7 @@ function FeedbackForm() {
 
   return (
     <>
-      <main className="mb-auto mt-20 bg-white grid content-center justify-center w-600 font-bold">Ota meihin yhteyttä!<br></br><br></br>
+      <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600 font-bold">Ota meihin yhteyttä!<br></br><br></br>
       <p>Sähköpostiosoite: xxs.asiakaspalvelu@gmail.com<br/>Puhelinnumero: +358 123456789<br/>Pääkonttori: Yliopistokatu 9 </p>
         
       <div>

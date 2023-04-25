@@ -79,6 +79,7 @@ export default function Navigation() {
                     {x.categoryname}
                   </Link>
                 ))}
+                <br /><Link className="pl-4 nav-link" to="/Help" onClick={() => setIsMenuOpen(false)}>Asiakaspalvelu</Link>
               </div>
               )}
             </div>
@@ -86,6 +87,7 @@ export default function Navigation() {
             <div className='searchbar pl-4 ml-auto'>
             <Search />
             </div>
+            
             <ShoppingCart />
             <LoginButton />
           </div>
