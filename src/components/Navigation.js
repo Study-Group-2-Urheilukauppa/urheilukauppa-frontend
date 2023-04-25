@@ -65,7 +65,7 @@ export default function Navigation() {
                 </svg>
               </button>
               {isMenuOpen && (
-                <div className="smooth absolute top-16 p-5 left-0 w-screen bg-fifth ">
+                <div className="smooth absolute top-16 p-5 left-0 w-screen bg-fifth">
                   {categories.map((x) => (
                     <Link
                       className="block py-2 px-4 hover:bg-gray-100"

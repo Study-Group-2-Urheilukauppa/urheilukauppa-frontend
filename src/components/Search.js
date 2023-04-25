@@ -16,11 +16,16 @@ export default function Search() {
         .catch(error => {
           console.error(error);
         });
+    } else {
+      // clear results if search term is empty
+      setResults([]);
     }
   }, [searchTerm]);
 
   const handleSearch = () => {
-    navigate('../SearchResult', { state: { results: results } });
+    if (searchTerm !== '') {
+      navigate('../SearchResult', { state: { results: results } });
+    }
   };
 
   return (
