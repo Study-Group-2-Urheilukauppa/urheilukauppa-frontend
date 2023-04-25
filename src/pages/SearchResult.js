@@ -22,15 +22,15 @@ export default function SearchResult() {
     <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
 
-        {results.map((result) => (
+      {results.map((result) => (
           <Link to={`../product/${result.productid}`} key={result.productid} className="hover:bg-secondary hover:bg-opacity-20 p-2">
             <img src={process.env.PUBLIC_URL + "../" + result.imgURL} alt={result.productname}></img>
-            <div className="text-xs font-bold">{result.productname}</div>
-            <div className='description'>{result.descript}</div>
+            <div className="text-xs font-bold sm:text-sm md:text-md lg:text-lg">{result.productname}</div>
+            <div className="description text-xs hidden md:flex sm:text-sm md:text-md lg:text-lg">{result.descript}</div>
             {result.sale && (
-              <p className="text-xs text-alered font-bold">{(((100 - result.sale) / 100) * result.price).toFixed(2)} € ALE-HINTA!</p>
+              <p className="text-xs text-alered font-bold sm:text-sm md:text-md lg:text-2xl">{(((100 - result.sale) / 100) * result.price).toFixed(2)} € ALE-HINTA!</p>
             )}
-            <div className="text-xs font-bold">{result.price} €</div>
+            <div className="text-xs font-bold sm:text-sm md:text-md lg:text-2xl">{result.price} €</div>
           </Link>
         ))}
 
