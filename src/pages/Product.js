@@ -29,7 +29,7 @@ export default function Product() {
     return (
         <>
             {isLoading ?
-                <div>Loading...</div>
+                <div className="pt-40 text-center text-2xl font-bold">Ladataan sisältöä...</div>
                 :
                 (!product.length == 0) ?
                     <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600">
