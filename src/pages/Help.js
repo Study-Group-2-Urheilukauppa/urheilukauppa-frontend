@@ -45,7 +45,7 @@ function FeedbackForm() {
           <label className="font-semibold text-gray-800">Palaute: </label>
           <textarea rows="8" cols="100" className="mt-1 block w-full border rounded-md py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" value={feedback} onChange={(e) => setFeedback(e.target.value)}></textarea>
           <br />
-          <button  className=' bg-secondary text-[#fff] pt-2 pl-3 pb-2 pr-3 inline-block border-primary border-2 rounded-3xl hover:bg-fourth' type="button" onClick={submitFeedback}>Lähetä lomake</button>
+          <button className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl" type="button" onClick={submitFeedback}>Lähetä lomake</button>
           <br />{alertMessage && <p className="text-red-500 mt-2">{alertMessage}</p>}
         </form>
       </div>

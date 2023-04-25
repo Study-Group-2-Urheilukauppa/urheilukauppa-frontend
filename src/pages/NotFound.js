@@ -8,7 +8,7 @@ export default function NotFound() {
                 <h2 className=" mb-3 text-2xl ">Hupsis! Sivua ei löytynyt 😔</h2>
                 <h1 className=" pb-4 text-9xl m-0 font-extrabold tracking-widest">404</h1>
                 <p className="mb-4 pb-7">Emme löytäneet etsimääsi sivua.</p>
-                <Link to='/' className=' bg-secondary text-[#fff] pt-2 pl-3 pb-2 pr-3 inline-block border-primary border-2 rounded-3xl hover:bg-fourth '>
+                <Link to='/' className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
                     Tästä takasin etusivulle</Link>
             </form>
         </div>
