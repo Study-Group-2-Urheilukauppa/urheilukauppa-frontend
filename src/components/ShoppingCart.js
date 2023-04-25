@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useReducer, useState } from 'react'
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 
 function ShoppingCart() {
@@ -26,35 +26,64 @@ function ShoppingCart() {
     )
 }
 
+function CartRead(id) {
+    let cart = {};
+
+    if (window.localStorage.getItem("cart")) {
+        cart = JSON.parse(window.localStorage.getItem("cart"));
+    }
+    
+    if (cart[id]) {
+        return true
+
+    } else {
+        return false
+    }
+
+}
+
+function CartUpdate(id, amount) {
+    let cart = {};
+        
+    if (window.localStorage.getItem("cart")) {
+        cart = JSON.parse(window.localStorage.getItem("cart"));
+    }
+    
+    if (cart[id]) {
+
+        let tempItem = cart[id];
+        tempItem.amount = amount
+        cart[id] = tempItem;
+
+    } else {
+
+        cart[id] = {amount: 1};
+    }
+
+    window.localStorage.setItem("cart", JSON.stringify(cart));
+}
+
 function CartButton({id}) {
 
+    const [isCarted, setIsCarted] = useState(false);
+
     function setCart() {
-
-        let cart = {};
-        
-        if (window.localStorage.getItem("cart")) {
-            cart = JSON.parse(window.localStorage.getItem("cart"));
-        }
-        
-        if (cart[id]) {
-
-            let tempItem = cart[id];
-            tempItem.amount += 1;
-            cart[id] = tempItem;
-
-        } else {
-
-            cart[id] = {amount: 1};
-        }
-    
-        window.localStorage.setItem("cart", JSON.stringify(cart));
+        CartUpdate(id);
+        setIsCarted(true);
     }
    
     return (
         <>
-        <button onClick={() => setCart({id})} class="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
-            Lisää ostoskoriin
+        {CartRead(id) || isCarted ? (
+        <button disabled class="bg-secondary opacity-60 text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
+        Tuote korissa
         </button>
+        ): (
+        <button onClick={() => setCart()} class="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
+        Lisää ostoskoriin
+        </button>
+        )}
+        
         </>
     )
 }
