@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
+import { UserIcon } from '@heroicons/react/24/outline';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
@@ -59,10 +60,21 @@ function LoginButton() {
     <div className="ml-4 flow-root lg:ml-6 relative" ref={menuRef}>
       <div className="group -m-2 flex items-center p-2">
         <button type="button" onClick={handleMenuClick}>
+
+        {!isLogged && (
           <ArrowRightOnRectangleIcon
             className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
             aria-hidden="true"
           />
+        )}
+
+        {isLogged && (
+          <UserIcon
+            className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+            aria-hidden="true"
+          />
+        )}
+
         </button>
         {isOpen && (
           <div className="absolute right-0 mt-24" onMouseLeave={() => setIsOpen(false)}>
