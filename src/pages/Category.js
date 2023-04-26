@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import NotFound from './NotFound';
 
-const URL = "http://localhost:3000/products/getproducts.php"
+const URL = "http://localhost:3000/api/products/getproducts.php"
 
 export default function Category() {
 

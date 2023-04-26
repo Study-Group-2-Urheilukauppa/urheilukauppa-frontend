@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const URL = "http://localhost:3000/addProduct.php"
+const URL = "http://localhost:3000/api/addProduct.php"
 
 export default function AddProduct() {
 
@@ -21,7 +21,7 @@ export default function AddProduct() {
       const [categories, setCategories] = useState([]);
 
       useEffect(() => {
-        fetch("http://localhost:3000/products/getcategories.php")
+        fetch("http://localhost:3000/api/products/getcategories.php")
           .then((response) => response.json())
           .then((data) => {
             setCategories(data);

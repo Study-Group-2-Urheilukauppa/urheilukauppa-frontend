@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import NotFound from './NotFound';
 
-const URL = "http://localhost:3000/products/allproducts.php"
+const URL = "http://localhost:3000/api/products/allproducts.php"
 
 export default function Inventory() {
 
@@ -20,7 +20,7 @@ export default function Inventory() {
     }, [])
 
     const updateAmount = (productid, amount) => {
-        axios.post('http://localhost:3000/products/allproducts.php', {
+        axios.post('http://localhost:3000/api/products/allproducts.php', {
             productid,
             amount
         }).then(() => {

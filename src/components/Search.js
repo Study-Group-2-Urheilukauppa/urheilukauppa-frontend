@@ -9,7 +9,7 @@ export default function Search() {
 
   useEffect(() => {
     if (searchTerm !== '') {
-      axios.get(`http://localhost:3000/search.php?q=${searchTerm}`)
+      axios.get(`http://localhost:3000/api/search.php?q=${searchTerm}`)
         .then(response => {
           setResults(response.data);
         })

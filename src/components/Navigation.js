@@ -6,7 +6,7 @@ import axios from 'axios'
 import { ShoppingCart } from './ShoppingCart'
 import { LoginButton } from './LoginButton'
 
-const URL = "http://localhost:3000/products/getcategories.php"
+const URL = "http://localhost:3000/api/products/getcategories.php"
 
 export default function Navigation() {
 

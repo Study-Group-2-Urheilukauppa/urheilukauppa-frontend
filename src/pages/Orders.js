@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 // URL address variable
-const URL = 'http://localhost:3000/viewOrders.php';
+const URL = 'http://localhost:3000/api/viewOrders.php';
 
 function Orders() {
     const [order, setOrder] = useState([]);

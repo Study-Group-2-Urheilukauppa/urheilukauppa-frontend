@@ -2,7 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const URL = 'http://localhost:3000/checkuser.php';
+const URL = 'http://localhost:3000/api/checkuser.php';
 
 export default function ProtectedRoutes () {
 

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import NotFound from './NotFound';
 import { CartButton } from '../components/ShoppingCart';
 
-const URL = "http://localhost:3000/products/getproduct.php"
+const URL = "http://localhost:3000/api/products/getproduct.php"
 
 export default function Product() {
     const { productId } = useParams();

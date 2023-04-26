@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 
 
 
-const URL = "http://localhost:3000/login.php";
+const URL = "http://localhost:3000/api/login.php";
 
 export default function Login() {
     

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const URL = "http://localhost:3000/addCategory.php"
+const URL = "http://localhost:3000/api/addCategory.php"
 
 export default function AddCategory() {
 

@@ -7,7 +7,7 @@ function FeedbackForm() {
   const [alertMessage, setAlertMessage] = useState("");
 
   const submitFeedback = async () => {
-    const response = await fetch('http://localhost:3000/Feedback.php', {
+    const response = await fetch('http://localhost:3000/api/Feedback.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

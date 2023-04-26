@@ -8,7 +8,7 @@ export default function Checkout() {
     const [results, setResults] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     
-    const URL = "http://localhost:3000/products/getproductlist.php"
+    const URL = "http://localhost:3000/api/products/getproductlist.php"
 
     useEffect(() => {
         
