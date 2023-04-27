@@ -108,4 +108,35 @@ function CartButton({id}) {
     )
 }
 
-export {ShoppingCart, CartButton, CartGetList, CartRead}
+
+function CartDeleteButton({id}) {
+
+    function handleClick() {
+        CartDelete(id);
+    }
+   
+    return (
+        <>
+        <button onClick={() => handleClick()} class="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
+        Poista korista
+        </button>
+        </>
+    )
+}
+
+function CartDelete(id) {
+    let cart = {};
+    console.log(id);
+        
+    if (window.localStorage.getItem("cart")) {
+        cart = JSON.parse(window.localStorage.getItem("cart"));
+    }
+    
+    if (cart[id]) {
+        delete cart[id]
+    }
+
+    window.localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+export {ShoppingCart, CartButton, CartDeleteButton, CartGetList, CartRead}

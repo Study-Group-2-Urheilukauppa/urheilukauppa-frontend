@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { CartGetList } from '../components/ShoppingCart';
+import { CartDelete, CartDeleteButton, CartGetList } from '../components/ShoppingCart';
 import hostURL from '../Constants';
 
 export default function Checkout() {
@@ -13,6 +13,13 @@ export default function Checkout() {
 
     useEffect(() => {
         
+        const onStorage = () => {
+          let ignore;
+        }
+
+        window.addEventListener('storage', onStorage);
+
+
         const address = URL + "/" + CartGetList();
 
         axios.get(address)
@@ -37,10 +44,15 @@ export default function Checkout() {
                 <p className="text-xl text-alered font-bold">{(((100 - result.sale) / 100) * result.price).toFixed(2)} € ALE-HINTA!</p>
               )}
               <div className="text-xl font-bold">{result.price} €</div>
+              <div>
+                <CartDeleteButton id={result.productid} />
+              </div>
             </div>
           ))}
           <div className='pt-3 pl-3'>
-            <button className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl pt" type="button">Osta →</button>
+            <button className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl pt" type="button">
+              Osta →
+            </button>
           </div>
         </div>
       </>
