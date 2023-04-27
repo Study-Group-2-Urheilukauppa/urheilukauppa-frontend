@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 
@@ -8,6 +8,17 @@ function ShoppingCart() {
 
     let cart = {};
     cart = JSON.parse(window.localStorage.getItem("cart"));
+
+    useEffect(() => {
+        let cartList = CartGetList();
+        if (cartList) {
+            let count = cartList.split(",").reduce((sum, key) => {
+                let amount = CartRead(key);
+                return sum + parseInt(amount);
+            }, 0);
+            setItemCount(count.toString());
+        }
+    }, []);
 
     return (
         <>
