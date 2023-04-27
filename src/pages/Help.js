@@ -5,20 +5,19 @@ function FeedbackForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [feedback, setFeedback] = useState('');
-  const [alertMessage, setAlertMessage] = useState("");
-  const [lastSubmittedAt, setLastSubmittedAt] = useState(null);
-  const MIN_TIME_BETWEEN_SUBMISSIONS = 10 * 60 * 1000; // 10 minutes in milliseconds
+  const [alertMessage, setAlertMessage] = useState('');
+  const [lastSubmitTime, setLastSubmitTime] = useState(
+    localStorage.getItem('lastSubmitTime') || 0
+  );
 
-
+  const canSubmit = Date.now() - Number(lastSubmitTime) > 60 * 10000;
 
   const submitFeedback = async () => {
-    // Check if the minimum time period has passed since the last submission
-    if (lastSubmittedAt && Date.now() - lastSubmittedAt < MIN_TIME_BETWEEN_SUBMISSIONS) {
-      setAlertMessage(`Voit lähettää palautetta vain kerran ${MIN_TIME_BETWEEN_SUBMISSIONS / (60 * 1000)} minuutin välein.`);
+    if (!canSubmit) {
+      setAlertMessage('Voit lähettää palautetta vain kerran 10 minuutin välein.');
       return;
     }
-  
-    // Submit the feedback
+
     const response = await fetch(`${hostURL}/api/Feedback.php`, {
       method: 'POST',
       headers: {
@@ -30,13 +29,13 @@ function FeedbackForm() {
         feedback
       })
     });
-  
+
     const result = await response.json();
-  
+
     if (result.success) {
-      // Update the last submitted time
-      setLastSubmittedAt(Date.now());
       setAlertMessage('Lomake lähetetty onnistuneesti!');
+      setLastSubmitTime(Date.now());
+      localStorage.setItem('lastSubmitTime', Date.now());
     } else {
       setAlertMessage('Ilmeni ongelma lomakkeen lähtettämisessä. Yritä myöhemmin uudelleen.');
     }
