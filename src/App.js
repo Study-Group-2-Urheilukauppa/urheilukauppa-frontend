@@ -48,7 +48,6 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/Category/:categoryId" element={<Category />} />
-          <Route path="/Checkout" element={<Checkout />} />
           <Route path="/Help" element={<Help />} />
           <Route path="/Product/:productId" element={<Product />} />
           <Route path="/SearchResult" element={<SearchResult />} />
@@ -61,6 +60,7 @@ export default function App() {
             <Route path="/AddCategory" element={<AddCategory />} />
             <Route path="/Inventory" element={<Inventory />} />
             <Route path="/Orders" element={<Orders />} />
+            <Route path="/Checkout" element={<Checkout />} />
           </Route>
         </Routes>
       </div>
