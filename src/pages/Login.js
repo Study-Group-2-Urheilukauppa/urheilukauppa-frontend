@@ -35,7 +35,7 @@ export default function Login() {
 
                     setUsername('');
                     setPassword('');
-                    navigate("/DefinitelyNotAdmin")
+                    navigate("/")
                 } else {
                     // Display an error message
                     alert(response.data.message);
