@@ -30,18 +30,20 @@ export default function Product() {
     return (
         <>
             {isLoading ?
-                <div className="pt-40 text-center text-2xl font-bold respo">Ladataan sisältöä...</div>
+                <div className="pt-40 text-center text-2xl font-bold">Ladataan sisältöä...</div>
                 :
                 (!product.length == 0) ?
                     <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600 respo">
-                        <div className="grid grid-cols-2 text-xl gap-5">
-                            <div className="max-w-2xl">
-                                <img src={process.env.PUBLIC_URL + "../" + product[0].imgURL} alt={product[0].productname}></img>
-                            </div>
+                        <div className="grid grid-cols-2 text-xl gap-5 responsiveproduct">
+                            <img className='testing show' src={process.env.PUBLIC_URL + "../" + product[0].imgURL} alt={product[0].productname}></img>
                             <div>
-                                <div className="text-xs font-bold sm:text-sm md:text-md lg:text-lg">
+                                <div className="pt-12 text-xs font-bold sm:text-sm md:text-md lg:text-lg">
                                     {product[0].productname}
                                 </div><br />
+
+                                {/* This image only shows when the screen goes on responsive mode */}
+                                <img className='testing hide' src={process.env.PUBLIC_URL + "../" + product[0].imgURL} alt={product[0].productname}></img>
+
                                 <div className="text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
                                     {product[0].fulldescript}
                                 </div><br />
@@ -59,7 +61,9 @@ export default function Product() {
                                     <div className="text-3xl font-bold">{product[0].price} €</div>
                                 }
                                 <br />
+                                <div className='pb-6'>
                                 <CartButton id={product[0].productid} />
+                                </div>
                             </div>
                         </div>
                     </main>

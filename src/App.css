@@ -88,6 +88,17 @@
   display: none;
 }
 
+.varasto{
+  width: 70px;
+}
+.searchbar2{
+  display: none;
+}
+
+.hide{
+  display: none;
+}
+
 @media only screen and (max-width: 930px) {
   .carousel__next-button, .carousel__back-button {
     display: none;
@@ -114,13 +125,22 @@
   .inventory{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
 
-.varasto{
-  width: 70px;
+  .hide{
+    display: block;
+  }
+
+  .show{
+    display: none;
+  }
+
+  .testing{
+    padding-bottom: 20px;
+  }
+
+  .responsiveproduct{
+   grid: unset; 
 }
-.searchbar2{
-  display: none;
 }
 
 @media only screen and (max-width: 540px) {
