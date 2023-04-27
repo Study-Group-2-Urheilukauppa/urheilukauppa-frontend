@@ -59,6 +59,9 @@ export default function Home() {
                         naturalSlideHeight={150}
                         totalSlides={product.length}
                         visibleSlides={visibleSlides}
+                        playDirection='forward'
+                        isPlaying
+                        interval={5000}
                         className="carousel-provider"
                     >
 
