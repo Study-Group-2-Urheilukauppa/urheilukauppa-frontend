@@ -13,13 +13,6 @@ export default function Checkout() {
 
     useEffect(() => {
         
-        const onStorage = () => {
-          let ignore;
-        }
-
-        window.addEventListener('storage', onStorage);
-
-
         const address = URL + "/" + CartGetList();
 
         axios.get(address)
