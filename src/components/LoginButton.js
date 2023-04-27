@@ -9,6 +9,7 @@ function LoginButton() {
   const [isOpen, setIsOpen] = useState(false);
   const isLogged = Cookies.get('token') !== undefined;
   const isAdmin = Cookies.get('role') === 'admin'; // assuming role is stored in a cookie
+  const isClient = Cookies.get('role') === 'client'; // assuming role is stored in a cookie
   const menuRef = useRef(null);
 
   useEffect(() => {
@@ -50,6 +51,11 @@ function LoginButton() {
   function handleAdminClick() {
     setIsOpen(false);
     navigate('/DefinitelyNotAdmin');
+  }
+
+  function handleClientClick() {
+    setIsOpen(false);
+    navigate('/Checkout');
   }
 
   const loginText = isLogged ? 'Kirjaudu ulos' : 'Kirjaudu';
@@ -108,6 +114,17 @@ function LoginButton() {
                   }}
                 >
                   Hallintapaneeli
+                </div>
+              )}
+              {isLogged && isClient && ( // only show if user is logged in and has client role
+                <div
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer font-bold"
+                  onClick={() => {
+                    handleLinkClick();
+                    handleClientClick();
+                  }}
+                >
+                  Ostoskori
                 </div>
               )}
             </div>
