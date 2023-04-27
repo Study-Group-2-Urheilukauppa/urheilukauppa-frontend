@@ -26,7 +26,6 @@ export default function Login() {
 
         axios.post(URL, loginData)
             .then(response => {
-                console.log(response.data)
                 if (response.data.success) {
                     const token = response.data.token;
                     const role = response.data.role
