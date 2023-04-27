@@ -47,8 +47,8 @@ export default function Home() {
 
                 <div className="container mx-auto">
                     <div className="salebg flex flex-col items-center justify-center w-full sm:py-8 px-4 mb-5 border-4 border-alered">
-                        <p className="text-md pb-3 sm:text-xl md:text-3xl lg:text-5xl font-bold text-[#fff]">ALEN LOPPURYSÄYS ON NYT TÄÄLLÄ!</p>
-                        <p className="text-md sm:text-xl md:text-3xl lg:text-5xl font-bold text-[#fff]">TULE TEKEMÄÄN ELÄMÄSI LÖYDÖT!</p>
+                        <p className="text-md pb-3 sm:text-xl md:text-3xl lg:text-5xl font-bold pt-4 text-[#fff]">ALEN LOPPURYSÄYS ON NYT TÄÄLLÄ!</p>
+                        <p className="text-md sm:text-xl md:text-3xl lg:text-5xl font-bold pb-4 text-[#fff]">TULE TEKEMÄÄN ELÄMÄSI LÖYDÖT!</p>
                     </div>
                 </div>
 
@@ -78,7 +78,7 @@ export default function Home() {
 
                                     <Slide index={x.productid} key={x.productid} className="slide hover:bg-secondary hover:bg-opacity-20">
                                         <Link to={`../product/${x.productid}`} key={x.productid}>
-                                            <div className="max-w-2xl max-h-2xl p-2">
+                                            <div className="max-w-2xl max-h-2xl p-3">
                                                 <img src={process.env.PUBLIC_URL + "../" + x.imgURL} alt={x.productname} />
                                                 <p className="text-xs sm:text-sm md:text-md lg:text-lg font-bold">{x.productname}</p>
                                                 <p className="description text-xs hidden md:flex sm:text-sm md:text-md lg:text-lg">{x.descript}</p>
