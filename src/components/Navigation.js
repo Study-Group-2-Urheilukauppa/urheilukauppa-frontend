@@ -90,7 +90,7 @@ export default function Navigation() {
             <div className='searchbar pl-4 ml-auto'>
             <Search />
             </div>
-            <div className='ml-auto'>
+            <div className='purkka'>
             <ShoppingCart />
             </div>
             <LoginButton />
