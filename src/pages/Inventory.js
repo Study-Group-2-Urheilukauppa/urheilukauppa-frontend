@@ -43,7 +43,7 @@ export default function Inventory() {
             ) : products.length > 0 ? (
                 <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600 respo">
                     <div className="text-md font-bold md:text-lg lg:text-2xl">Varasto:</div><br></br>
-                    <div className="grid grid-cols-4 gap-5">
+                    <div className="grid grid-cols-4 gap-5 inventory">
                         {products.map((result) => (
                             <div className="shadow-md text-xs sm:text-sm md:text-md lg:text-lg px-2 py-2" key={result.productid}>
                                 <b>ID:</b> {result.productid}<br></br>

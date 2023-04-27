@@ -111,6 +111,9 @@
   .footer{
     display: none;
   }
+  .inventory{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .varasto{
@@ -132,5 +135,8 @@
   }
   .menurespo{
     top: 130px;
+  }
+  .inventory{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
