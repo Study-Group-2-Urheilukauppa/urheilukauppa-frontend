@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import NotFound from './NotFound';
+import hostURL from '../Constants';
 
-const URL = "http://localhost:3000/api/products/allproducts.php"
+const URL = hostURL + "/api/products/allproducts.php";
 
 export default function Inventory() {
 

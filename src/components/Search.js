@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import hostURL from '../Constants';
 
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -9,7 +10,7 @@ export default function Search() {
 
   useEffect(() => {
     if (searchTerm !== '') {
-      axios.get(`http://localhost:3000/api/search.php?q=${searchTerm}`)
+      axios.get(`${hostURL}/api/search.php?q=${searchTerm}`)
         .then(response => {
           setResults(response.data);
         })

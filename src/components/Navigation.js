@@ -5,8 +5,9 @@ import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { ShoppingCart } from './ShoppingCart'
 import { LoginButton } from './LoginButton'
+import hostURL from '../Constants'
 
-const URL = "http://localhost:3000/api/products/getcategories.php"
+const URL = hostURL + "/api/products/getcategories.php";
 
 export default function Navigation() {
 

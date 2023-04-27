@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import hostURL from '../Constants';
 
-const URL = "http://localhost:3000/api/signup.php";
+const URL = hostURL + "/api/signup.php";
 
 export default function SignUp() {
   const [firstname, setFirstName] = useState("");

@@ -3,8 +3,9 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import NotFound from './NotFound';
 import { CartButton } from '../components/ShoppingCart';
+import hostURL from '../Constants';
 
-const URL = "http://localhost:3000/api/products/getproduct.php"
+const URL = hostURL + "/api/products/getproduct.php";
 
 export default function Product() {
     const { productId } = useParams();

@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { CartGetList } from '../components/ShoppingCart';
+import hostURL from '../Constants';
 
 export default function Checkout() {
 
     const [results, setResults] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     
-    const URL = "http://localhost:3000/api/products/getproductlist.php"
+    const URL = hostURL + "/api/products/getproductlist.php";
 
     useEffect(() => {
         

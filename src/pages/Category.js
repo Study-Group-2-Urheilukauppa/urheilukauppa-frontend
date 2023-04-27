@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import NotFound from './NotFound';
+import hostURL from '../Constants';
 
-const URL = "http://localhost:3000/api/products/getproducts.php"
+const URL = hostURL + "/api/products/getproducts.php";
 
 export default function Category() {
 

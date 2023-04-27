@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import hostURL from '../Constants';
 
-const URL = "http://localhost:3000/api/addProduct.php"
+const URL = hostURL + "/api/addProduct.php"
 
 export default function AddProduct() {
 

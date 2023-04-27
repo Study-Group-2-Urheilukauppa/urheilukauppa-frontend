@@ -3,8 +3,9 @@ import axios from 'axios';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import { Link } from 'react-router-dom';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import hostURL from '../Constants';
 
-const URL = "http://localhost:3000/api/products/getsales.php"
+const URL = hostURL + "/api/products/getsales.php";
 
 export default function Home() {
     const [product, setProduct] = useState([]);

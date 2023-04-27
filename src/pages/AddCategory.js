@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import hostURL from '../Constants';
 
-const URL = "http://localhost:3000/api/addCategory.php"
+const URL = hostURL + "/api/addCategory.php"
 
 export default function AddCategory() {
 

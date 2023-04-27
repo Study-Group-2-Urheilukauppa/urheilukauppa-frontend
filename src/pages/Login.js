@@ -2,10 +2,9 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate, Link} from 'react-router-dom';
 import Cookies from 'js-cookie';
+import hostURL from '../Constants';
 
-
-
-const URL = "http://localhost:3000/api/login.php";
+const URL = hostURL + "/api/login.php";
 
 export default function Login() {
     
