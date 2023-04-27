@@ -27,7 +27,6 @@ export default function Checkout() {
                 setResults(response.data.products);
                 setIsLoading(false);
             }).catch(error => {
-                alert(error);
                 setIsLoading(false);
             })
     }, [])
