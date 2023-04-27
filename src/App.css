@@ -39,7 +39,7 @@
 
 .carousel-provider {
   width: 100%;
-  height: 800px;
+
 }
 
 .slider {
@@ -65,11 +65,11 @@
   margin: 0 10px;
 }
 .carousel__next-button {
-  top: 20%;
+  top: 30%;
   right: 0;
 }
 .carousel__back-button {
-  top: 20%;
+  top: 30%;
   left: 0;
 }
 
@@ -100,9 +100,7 @@
 }
 
 @media only screen and (max-width: 930px) {
-  .carousel__next-button, .carousel__back-button {
-    display: none;
-  }
+
   
   .test {
     display: none;
