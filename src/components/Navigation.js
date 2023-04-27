@@ -35,6 +35,38 @@ export default function Navigation() {
         <div className="border-b border-gray-200">
           <div className="flex h-16 items-center">
 
+          <div className="hamburger">
+              <button
+                className="text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900"
+                aria-label="Toggle menu"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                <svg viewBox="0 0 24 24" className="h-12 w-12 pt-1 fill-current">
+                  <rect x="4" y="5" width="16" height="2" />
+                  <rect x="4" y="11" width="16" height="2" />
+                  <rect x="4" y="17" width="16" height="2" />
+                </svg>
+              </button>
+              {isMenuOpen && (
+                <div
+                className="smooth absolute top-16 p-5 left-0 w-screen bg-fifth menurespo"
+                onMouseLeave={() => setIsMenuOpen(false)}
+              >
+                {categories.map((x) => (
+                  <Link
+                    className="block py-2 px-4 hover:bg-gray-100"
+                    to={`/category/${x.categoryid}`}
+                    key={x.categoryid}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {x.categoryname}
+                  </Link>
+                ))}
+                <br /><Link className="pl-4 nav-link" to="/Help" onClick={() => setIsMenuOpen(false)}>Asiakaspalvelu</Link>
+              </div>
+              )}
+            </div>
+
             {/* Logo */}
             <div className="ml-4 w-24 lg:ml-0">
               <Link to="/">
@@ -53,45 +85,20 @@ export default function Navigation() {
               )}
             </div>
 
-            <div className="hamburger">
-              <button
-                className="text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900"
-                aria-label="Toggle menu"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                <svg viewBox="0 0 24 24" className="h-12 w-12 pt-1 fill-current">
-                  <rect x="4" y="5" width="16" height="2" />
-                  <rect x="4" y="11" width="16" height="2" />
-                  <rect x="4" y="17" width="16" height="2" />
-                </svg>
-              </button>
-              {isMenuOpen && (
-                <div
-                className="smooth absolute top-16 p-5 left-0 w-screen bg-fifth"
-                onMouseLeave={() => setIsMenuOpen(false)}
-              >
-                {categories.map((x) => (
-                  <Link
-                    className="block py-2 px-4 hover:bg-gray-100"
-                    to={`/category/${x.categoryid}`}
-                    key={x.categoryid}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {x.categoryname}
-                  </Link>
-                ))}
-                <br /><Link className="pl-4 nav-link" to="/Help" onClick={() => setIsMenuOpen(false)}>Asiakaspalvelu</Link>
-              </div>
-              )}
-            </div>
+
 
             <div className='searchbar pl-4 ml-auto'>
             <Search />
             </div>
-            
+            <div className='ml-auto'>
             <ShoppingCart />
+            </div>
             <LoginButton />
+            
           </div>
+          <div className='searchbar2 pl-4 ml-auto'>
+            <Search className='searchbar2' />
+            </div>
         </div>
       </nav>
     </header>

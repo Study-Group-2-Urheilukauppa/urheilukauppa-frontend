@@ -9,6 +9,7 @@ const URL = hostURL + "/api/products/getsales.php";
 
 export default function Home() {
     const [product, setProduct] = useState([]);
+    const [visibleSlides, setVisibleSlides] = useState(4);
 
     useEffect(() => {
 
@@ -21,25 +22,43 @@ export default function Home() {
             })
     }, [])
 
+    useEffect(() => {
+        const handleResize = () => {
+          if (window.innerWidth < 768) {
+            setVisibleSlides(1);
+          } else {
+            setVisibleSlides(4);
+          }
+        };
+    
+        handleResize();
+    
+        window.addEventListener("resize", handleResize);
+    
+        return () => {
+          window.removeEventListener("resize", handleResize);
+        };
+      }, []);
+
 
     return (
         <>
-            <main className="mx-20 mb-auto mt-20 bg-white content-center justify-center">
+            <main className="mx-20 mb-auto mt-20 bg-white content-center justify-center respo">
 
                 <div className="container mx-auto">
-                    <div className="salebg flex flex-col items-center justify-center w-full h-96 sm:py-8 px-4 mb-5 border-4 border-alered">
+                    <div className="salebg flex flex-col items-center justify-center w-full sm:py-8 px-4 mb-5 border-4 border-alered">
                         <p className="text-md pb-3 sm:text-xl md:text-3xl lg:text-5xl font-bold text-[#fff]">ALEN LOPPURYSÄYS ON NYT TÄÄLLÄ!</p>
                         <p className="text-md sm:text-xl md:text-3xl lg:text-5xl font-bold text-[#fff]">TULE TEKEMÄÄN ELÄMÄSI LÖYDÖT!</p>
                     </div>
                 </div>
 
 
-                <div>
+                <div className="karuselli">
                     <CarouselProvider
                         naturalSlideWidth={100}
                         naturalSlideHeight={125}
                         totalSlides={product.length}
-                        visibleSlides={4}
+                        visibleSlides={visibleSlides}
                         className="carousel-provider"
                     >
 
@@ -76,6 +95,7 @@ export default function Home() {
 
                     </CarouselProvider>
                 </div>
+                
 
             </main>
         </>

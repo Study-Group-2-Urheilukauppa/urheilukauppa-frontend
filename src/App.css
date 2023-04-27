@@ -116,3 +116,21 @@
 .varasto{
   width: 70px;
 }
+.searchbar2{
+  display: none;
+}
+
+@media only screen and (max-width: 540px) {
+  .searchbar{
+    display: none;
+  }
+  .searchbar2{
+    display: block;
+  }
+  .respo{
+    margin-top: 10rem;
+  }
+  .menurespo{
+    top: 130px;
+  }
+}
