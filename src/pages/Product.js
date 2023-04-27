@@ -37,23 +37,23 @@ export default function Product() {
                         <div className="grid grid-cols-2 text-xl gap-5 responsiveproduct">
                             <img className='testing show' src={process.env.PUBLIC_URL + "../" + product[0].imgURL} alt={product[0].productname}></img>
                             <div>
-                                <div className="pt-12 text-xs font-bold sm:text-sm md:text-md lg:text-lg">
+                                <div className="pt-12 text-xs font-bold sm:text-sm md:text-xl lg:text-lg">
                                     {product[0].productname}
                                 </div><br />
 
                                 {/* This image only shows when the screen goes on responsive mode */}
-                                <img className='testing hide' src={process.env.PUBLIC_URL + "../" + product[0].imgURL} alt={product[0].productname}></img>
+                                <img className='testing hide w-96' src={process.env.PUBLIC_URL + "../" + product[0].imgURL} alt={product[0].productname}></img>
 
-                                <div className="text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
+                                <div className="text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl w-96">
                                     {product[0].fulldescript}
                                 </div><br />
 
                                 {(product[0].sale !== null) ?
                                     <div>
-                                        <div className="text-xs text-alered font-bold sm:text-sm md:text-md lg:text-2xl">
+                                        <div className="text-xs text-alered font-bold sm:text-xl md:text-md lg:text-2xl">
                                             {(((100 - product[0].sale) / 100) * product[0].price).toFixed(2)} € ALE-HINTA!
                                         </div>
-                                        <div className="text-xs font-bold sm:text-sm md:text-md lg:text-2xl line-through">
+                                        <div className="text-xs font-bold sm:text-base md:text-xl lg:text-2xl line-through">
                                             {product[0].price} €
                                         </div>
                                     </div>
