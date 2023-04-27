@@ -7,7 +7,7 @@ export default function SearchResult() {
 
   if (results.length === 0) {
     return (
-      <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600">
+      <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600 respo">
         <div className="text-xl font-bold text-center">Ei hakutuloksia<br /><br /></div>
         <div className='w-full pt-3 pb-6 text-center'>
           <Link to='/' className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">

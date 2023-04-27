@@ -40,7 +40,7 @@ export default function AddCategory() {
 
     return (
         <>
-            <main className="mb-auto mt-20 bg-white grid content-center justify-center w-600 font-bold">Tuoteryhmän lisäys<br></br>
+            <main className="mb-auto mt-20 bg-white grid content-center justify-center w-600 font-bold respo">Tuoteryhmän lisäys<br></br>
                 <div>
                     <form onSubmit={handleSubmit} className="flex flex-col space-y-2 mx-auto mt-8 p-4 rounded-md shadow-md bg-white w-full">
                         <label className="font-semibold text-gray-800">

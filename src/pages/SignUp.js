@@ -40,7 +40,7 @@ export default function SignUp() {
 
   return (
     <div>
-      <main className="mx-20 mb-auto mt-40 bg-white grid content-center justify-center w-600">
+      <main className="mx-20 mb-auto mt-40 bg-white grid content-center justify-center w-600 respo">
         <form className="flex flex-col space-y-2 max-w-sm mx-auto mt-8 p-4 rounded-md shadow-md bg-secondary w-96" onSubmit={handleSubmit}>
           <label className="font-semibold text-gray-800">
             Etunimi:

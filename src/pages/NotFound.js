@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 export default function NotFound() {
     return (
-        <div className="m-0 p-0 max-h-screen">
+        <div className="m-0 p-0 max-h-screen respo">
             <form className=" w-full absolute top-1/4 text-center text-primary">
                 <h2 className=" mb-3 text-2xl ">Hupsis! Sivua ei löytynyt 😔</h2>
                 <h1 className=" pb-4 text-9xl m-0 font-extrabold tracking-widest">404</h1>

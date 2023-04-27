@@ -77,7 +77,7 @@ function LoginButton() {
 
         </button>
         {isOpen && (
-          <div className="absolute right-0 mt-24" onMouseLeave={() => setIsOpen(false)}>
+          <div className="absolute right-0 mt-24 z-50" onMouseLeave={() => setIsOpen(false)}>
             <div className="bg-secondary shadow-lg rounded-md">
               <div
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer font-bold"

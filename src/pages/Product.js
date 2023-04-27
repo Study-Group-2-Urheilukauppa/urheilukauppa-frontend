@@ -30,10 +30,10 @@ export default function Product() {
     return (
         <>
             {isLoading ?
-                <div className="pt-40 text-center text-2xl font-bold">Ladataan sisältöä...</div>
+                <div className="pt-40 text-center text-2xl font-bold respo">Ladataan sisältöä...</div>
                 :
                 (!product.length == 0) ?
-                    <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600">
+                    <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600 respo">
                         <div className="grid grid-cols-2 text-xl gap-5">
                             <div className="max-w-2xl">
                                 <img src={process.env.PUBLIC_URL + "../" + product[0].imgURL} alt={product[0].productname}></img>

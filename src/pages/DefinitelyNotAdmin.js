@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function AdminPage() {
 
   return (
-    <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600">
+    <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600 respo">
       <div className="text-md font-bold md:text-lg lg:text-2xl">Tämä on Admin-sivu</div><br></br>
     <div className="grid grid-cols-1 gap-5">
         <Link to ='/AddCategory'>

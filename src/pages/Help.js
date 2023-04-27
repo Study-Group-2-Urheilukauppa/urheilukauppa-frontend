@@ -32,8 +32,9 @@ function FeedbackForm() {
 
   return (
     <>
-      <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center w-600 font-bold">Ota meihin yhteyttä!<br></br><br></br>
-      <p>Sähköpostiosoite: xxs.asiakaspalvelu@gmail.com<br/>Puhelinnumero: +358 123456789<br/>Pääkonttori: Yliopistokatu 9 </p>
+      <main className="mx-20 mb-auto mt-20 bg-white grid content-center justify-center font-bold respo">
+      <p className="mx-auto">Ota meihin yhteyttä!</p><br></br>
+      <p className="mx-auto">Sähköpostiosoite: xxs.asiakaspalvelu@gmail.com<br/>Puhelinnumero: +358 123456789<br/>Pääkonttori: Yliopistokatu 9 </p>
         
       <div>
         <form className="flex flex-col space-y-2 mx-auto mt-8 p-4 rounded-md shadow-md bg-white w-full">

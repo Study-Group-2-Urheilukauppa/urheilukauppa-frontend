@@ -22,7 +22,7 @@ function Orders() {
 
     // map results
     return (
-        <main className="mx-20 mb-auto mt-20 bg-white grid justify-left w-600">
+        <main className="mx-20 mb-auto mt-20 bg-white grid justify-left w-600 respo">
             <div>
                 <h1 className="text-2xl font-bold mb-4">Tilaukset</h1>              
                 {order.map((item) => (
