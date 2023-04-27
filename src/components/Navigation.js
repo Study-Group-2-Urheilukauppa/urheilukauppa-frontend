@@ -35,7 +35,7 @@ export default function Navigation() {
         <div className="border-b border-gray-200">
           <div className="flex h-16 items-center">
 
-          <div className="hamburger">
+            <div className="hamburger">
               <button
                 className="text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900"
                 aria-label="Toggle menu"
@@ -49,21 +49,21 @@ export default function Navigation() {
               </button>
               {isMenuOpen && (
                 <div
-                className="smooth absolute top-16 p-5 left-0 w-screen bg-fifth menurespo"
-                onMouseLeave={() => setIsMenuOpen(false)}
-              >
-                {categories.map((x) => (
-                  <Link
-                    className="block py-2 px-4 hover:bg-gray-100"
-                    to={`/category/${x.categoryid}`}
-                    key={x.categoryid}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {x.categoryname}
-                  </Link>
-                ))}
-                <br /><Link className="pl-4 nav-link" to="/Help" onClick={() => setIsMenuOpen(false)}>Asiakaspalvelu</Link>
-              </div>
+                  className="smooth absolute top-16 p-5 left-0 w-screen bg-fifth menurespo"
+                  onMouseLeave={() => setIsMenuOpen(false)}
+                >
+                  {categories.map((x) => (
+                    <Link
+                      className="block py-2 px-4 hover:bg-gray-100"
+                      to={`/category/${x.categoryid}`}
+                      key={x.categoryid}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {x.categoryname}
+                    </Link>
+                  ))}
+                  <br /><Link className="pl-4 nav-link" to="/Help" onClick={() => setIsMenuOpen(false)}>Asiakaspalvelu</Link>
+                </div>
               )}
             </div>
 
@@ -81,24 +81,24 @@ export default function Navigation() {
 
             <div className="text-indigo-600 text-sm font-medium test">
               {categories.map(x =>
-                <Link className="pl-4 nav-link" to={`/category/${x.categoryid}`} key={x.categoryid}>{x.categoryname}</Link>
+                <Link className="spurdo nav-link p-2" to={`/category/${x.categoryid}`} key={x.categoryid}>{x.categoryname}</Link>
               )}
             </div>
 
 
 
             <div className='searchbar pl-4 ml-auto'>
-            <Search />
+              <Search />
             </div>
             <div className='purkka'>
-            <ShoppingCart />
+              <ShoppingCart />
             </div>
             <LoginButton />
-            
+
           </div>
           <div className='searchbar2 pl-4 ml-auto'>
             <Search className='searchbar2' />
-            </div>
+          </div>
         </div>
       </nav>
     </header>

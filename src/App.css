@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -52,7 +53,9 @@
   width: 25%;
   height: 100%;
 }
-.carousel__back-button, .carousel__next-button {
+
+.carousel__back-button,
+.carousel__next-button {
   position: absolute;
   transform: translateY(-50%);
   background-color: #333;
@@ -64,44 +67,55 @@
   font-size: 16px;
   margin: 0 10px;
 }
+
 .carousel__next-button {
   top: 30%;
   right: 0;
 }
+
 .carousel__back-button {
   top: 30%;
   left: 0;
 }
 
-.carousel__back-button:hover, .carousel__next-button:hover {
+.carousel__back-button:hover,
+.carousel__next-button:hover {
   background-color: #666;
 }
 
-.pointer       { cursor: pointer; }
+.pointer {
+  cursor: pointer;
+}
 
-.salebg{
+.salebg {
   background-image: url(images/sale.png);
   background-size: cover;
 }
 
-.hamburger{
+.hamburger {
   display: none;
 }
 
-.varasto{
+.varasto {
   width: 70px;
 }
-.searchbar2{
+
+.searchbar2 {
   display: none;
 }
 
-.hide{
+.hide {
   display: none;
+}
+
+.spurdo:hover {
+  border: 0.5px solid #171D1C;
+  background-color: #5FBFF9;
+  border-radius: 5px;
 }
 
 @media only screen and (max-width: 930px) {
 
-  
   .test {
     display: none;
   }
@@ -110,54 +124,61 @@
     display: block;
   }
 
-  .description{
+  .description {
     display: none;
   }
 
-  .searchbar{
+  .searchbar {
     width: 100%;
   }
-  .footer{
+
+  .footer {
     display: none;
   }
-  .inventory{
+
+  .inventory {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .hide{
+  .hide {
     display: block;
   }
 
-  .show{
+  .show {
     display: none;
   }
 
-  .testing{
+  .testing {
     padding-bottom: 20px;
   }
 
-  .responsiveproduct{
-   grid: unset; 
-}
-.purkka{
-  margin-left: auto;
-}
+  .responsiveproduct {
+    grid: unset;
+  }
+
+  .purkka {
+    margin-left: auto;
+  }
 }
 
 @media only screen and (max-width: 540px) {
-  .searchbar{
+  .searchbar {
     display: none;
   }
-  .searchbar2{
+
+  .searchbar2 {
     display: block;
   }
-  .respo{
+
+  .respo {
     margin-top: 10rem;
   }
-  .menurespo{
+
+  .menurespo {
     top: 130px;
   }
-  .inventory{
+
+  .inventory {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
