@@ -17,10 +17,11 @@ export default function Checkout() {
 
         axios.get(address)
             .then((response) => {
-                setResults(response.data.products);
-                setIsLoading(false);
+              setResults(response.data.products);
+              setIsLoading(false);
             }).catch(error => {
-                setIsLoading(false);
+              setResults([]);
+              setIsLoading(false);
             })
     }, [results])
 
