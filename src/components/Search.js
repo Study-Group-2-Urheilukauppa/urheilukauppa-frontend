@@ -26,6 +26,7 @@ export default function Search() {
   const handleSearch = () => {
     if (searchTerm !== '') {
       navigate('../SearchResult', { state: { results: results } });
+      setSearchTerm('');
     }
   };
 
