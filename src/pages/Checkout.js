@@ -7,7 +7,8 @@ import hostURL from '../Constants';
 export default function Checkout() {
 
     const [results, setResults] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [cart, setCart] = useState("");
+    const [userid, setUserid] = useState("");
     
     const URL = hostURL + "/api/products/getproductlist.php";
 
@@ -18,12 +19,47 @@ export default function Checkout() {
         axios.get(address)
             .then((response) => {
               setResults(response.data.products);
-              setIsLoading(false);
             }).catch(error => {
               setResults([]);
-              setIsLoading(false);
             })
-    }, [results])
+    }, [])
+
+    
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+
+      axios.get(hostURL + '/api/checkuser.php', {
+        withCredentials: true
+        })
+        .then((response) => {
+          setUserid(response.data.id);
+        })
+        .catch(error => {
+          alert(error);
+        })
+
+      setCart(JSON.parse(window.localStorage.getItem("cart")))
+
+      const orderData = {
+          userid: userid,
+          cart: cart
+      };
+      
+      axios.post(hostURL + '/api/orders.php', orderData)
+        .then(response => {
+
+          if (response.data.success) {
+            window.localStorage.removeItem("cart");
+            alert("tilaus onnistui!")
+          } else {
+            // Display an error message
+            alert(response.data.message);
+        }})
+        .catch(error => {
+          console.error(error);
+        });
+      }
 
     return (
       <>
@@ -43,7 +79,7 @@ export default function Checkout() {
             </div>
           ))}
           <div className='pt-3 pl-3'>
-            <button className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl pt" type="button">
+            <button onClick={handleSubmit} className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl pt" type="button">
               Osta →
             </button>
           </div>
