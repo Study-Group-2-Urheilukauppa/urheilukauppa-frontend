@@ -106,11 +106,11 @@ function CartButton({id}) {
     return (
         <>
         {CartRead(id) || isCarted ? (
-        <button disabled class="bg-secondary opacity-60 text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
+        <button disabled className="bg-secondary opacity-60 text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
         Tuote korissa
         </button>
         ): (
-        <button onClick={() => setCart()} class="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
+        <button onClick={() => setCart()} className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
         Lisää ostoskoriin
         </button>
         )}
@@ -128,7 +128,7 @@ function CartDeleteButton({id}) {
    
     return (
         <>
-        <button onClick={() => handleClick()} class="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
+        <button onClick={() => handleClick()} className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl">
         Poista korista
         </button>
         </>
