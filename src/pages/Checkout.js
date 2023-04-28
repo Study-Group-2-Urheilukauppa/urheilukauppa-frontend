@@ -22,28 +22,26 @@ export default function Checkout() {
             }).catch(error => {
               setResults([]);
             })
+
+        axios.get(hostURL + '/api/checkuser.php', {
+          withCredentials: true
+          })
+          .then((response) => {
+            let temp = response.data.userid
+            setUserid(temp.toString());
+          })
+          .catch(error => {
+            alert(error);
+          })
     }, [])
 
     
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-
-      axios.get(hostURL + '/api/checkuser.php', {
-        withCredentials: true
-        })
-        .then((response) => {
-          setUserid(response.data.id);
-        })
-        .catch(error => {
-          alert(error);
-        })
-
-      setCart(JSON.parse(window.localStorage.getItem("cart")))
+    function handleSubmit() {
 
       const orderData = {
           userid: userid,
-          cart: cart
+          cart: window.localStorage.getItem("cart")
       };
       
       axios.post(hostURL + '/api/orders.php', orderData)
