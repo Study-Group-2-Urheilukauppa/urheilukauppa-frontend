@@ -29,7 +29,7 @@ export default function SignUp() {
       password: password
     })
       .then((response) => {
-        console.log(response);
+
         navigate("/Login")
       })
       .catch((error) => {
