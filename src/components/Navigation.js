@@ -15,9 +15,8 @@ export default function Navigation() {
   const [categories, setCategories] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-
+  // Fetch categories on mount and whenever categories change
   useEffect(() => {
-
     const criteria = categoryId;
     const address = URL + "/" + criteria;
 
@@ -27,7 +26,7 @@ export default function Navigation() {
       }).catch(error => {
         alert(error)
       })
-  }, [])
+  }, [categories])
 
   return (
     <header className="fixed top-0 w-full bg-secondary z-50">
