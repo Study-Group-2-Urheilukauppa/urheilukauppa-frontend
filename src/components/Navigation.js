@@ -26,7 +26,7 @@ export default function Navigation() {
       }).catch(error => {
         alert(error)
       })
-  }, [categories])
+  }, [])
 
   return (
     <header className="fixed top-0 w-full bg-secondary z-50">
