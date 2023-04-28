@@ -41,10 +41,10 @@ export default function Checkout() {
 
       const orderData = {
           userid: userid,
-          cart: window.localStorage.getItem("cart")
+          cart: JSON.parse(window.localStorage.getItem("cart"))
       };
       
-      axios.post(hostURL + '/api/orders.php', orderData)
+      axios.post(hostURL + '/api/products/orders.php', orderData)
         .then(response => {
 
           if (response.data.success) {
