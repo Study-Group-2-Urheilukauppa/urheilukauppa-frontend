@@ -22,7 +22,7 @@ export default function Checkout() {
             }).catch(error => {
                 setIsLoading(false);
             })
-    }, [])
+    }, [results])
 
     return (
       <>
