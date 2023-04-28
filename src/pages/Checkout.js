@@ -61,7 +61,7 @@ export default function Checkout() {
 
     return (
       <>
-        <div className="grid grid-cols-2 pt-24">
+        <div className="grid grid-cols-2 pt-24 check">
           {results.map((result) => (
             <div key={result.productid} className="hover:bg-secondary hover:bg-opacity-20 p-2">
               <img src={process.env.PUBLIC_URL + "../" + result.imgURL} alt={result.productname} className='h-20'></img>
