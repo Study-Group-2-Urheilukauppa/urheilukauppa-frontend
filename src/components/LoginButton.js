@@ -42,6 +42,7 @@ function LoginButton() {
     Cookies.remove('role');
     window.localStorage.removeItem("cart");
     navigate('/');
+    window.location.reload();
   }
 
   function handleRegisterClick() {

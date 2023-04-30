@@ -49,6 +49,7 @@ export default function Checkout() {
 
           if (response.data.success) {
             window.localStorage.removeItem("cart");
+            window.location.reload();
             alert("tilaus onnistui!")
           } else {
             // Display an error message
@@ -61,7 +62,7 @@ export default function Checkout() {
 
     return (
       <>
-        <div className="grid grid-cols-2 pt-24 check">
+        <div className="flow-root grid-cols-2 pt-24 check">
           {results.map((result) => (
             <div key={result.productid} className="hover:bg-secondary hover:bg-opacity-20 p-2">
               <img src={process.env.PUBLIC_URL + "../" + result.imgURL} alt={result.productname} className='h-20'></img>
@@ -76,7 +77,7 @@ export default function Checkout() {
               </div>
             </div>
           ))}
-          <div className='pt-3 pl-3'>
+          <div className='flow-root pt-3 pl-3'>
             <button onClick={handleSubmit} className="bg-secondary hover:bg-third text-white font-bold py-2 px-4 border rounded text-xs sm:text-sm md:text-md lg:text-lg max-w-2xl pt" type="button">
               Osta →
             </button>

@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { ShoppingBagIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { ShoppingBagIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 function ShoppingCart() {
 
     const [itemCount, setItemCount] = useState("0");
-
-    let cart = {};
-    cart = JSON.parse(window.localStorage.getItem("cart"));
 
     useEffect(() => {
         let cartList = CartGetList();
@@ -18,6 +15,26 @@ function ShoppingCart() {
             }, 0);
             setItemCount(count.toString());
         }
+    }, []);
+
+    function handleStorageChange() {
+        let cartList = CartGetList();
+        if (cartList) {
+            let count = cartList.split(",").reduce((sum, key) => {
+                let amount = CartRead(key);
+                return sum + parseInt(amount);
+            }, 0);
+            setItemCount(count.toString());
+        } else {
+            setItemCount("0");
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('storage', handleStorageChange);
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
     }, []);
 
     return (
@@ -34,7 +51,7 @@ function ShoppingCart() {
             </div>
             </div>
         </>
-    )
+    );
 }
 
 function CartRead(id) {
@@ -46,10 +63,10 @@ function CartRead(id) {
     
     if (cart[id]) {
         let tempItem = cart[id];
-        return tempItem.amount
+        return tempItem.amount;
 
     } else {
-        return false
+        return false;
     }
 
 }
@@ -64,7 +81,7 @@ function CartUpdate(id, amount) {
     if (cart[id]) {
 
         let tempItem = cart[id];
-        tempItem.amount = amount
+        tempItem.amount = amount;
         cart[id] = tempItem;
 
     } else {
@@ -73,23 +90,24 @@ function CartUpdate(id, amount) {
     }
 
     window.localStorage.setItem("cart", JSON.stringify(cart));
+    window.dispatchEvent(new Event('storage'));
 }
 
 function CartGetList() {
     let cart = {};
     let cartList = [];
-    let cartStr = ""
+    let cartStr = "";
         
     if (window.localStorage.getItem("cart")) {
         cart = JSON.parse(window.localStorage.getItem("cart"));
-        cartList = Object.keys(cart)
-        cartStr = cartList.toString()
+        cartList = Object.keys(cart);
+        cartStr = cartList.toString();
 
-        return cartStr
+        return cartStr;
         
     } else {
 
-        return false
+        return false;
     }
 }
 
@@ -102,6 +120,7 @@ function CartButton({id}) {
         setIsCarted(true);
         CartGetList();
     }
+   
    
     return (
         <>
@@ -145,9 +164,9 @@ function CartDelete(id) {
     
     if (cart[id]) {
         delete cart[id]
+        window.localStorage.setItem("cart", JSON.stringify(cart));
+        window.location.reload(); // Refresh the page after deleting the item
     }
-
-    window.localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 export {ShoppingCart, CartButton, CartDeleteButton, CartGetList, CartRead}
