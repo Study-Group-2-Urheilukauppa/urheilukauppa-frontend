@@ -40,6 +40,7 @@ function LoginButton() {
     setIsOpen(false);
     Cookies.remove('token');
     Cookies.remove('role');
+    window.localStorage.removeItem("cart");
     navigate('/');
   }
 
