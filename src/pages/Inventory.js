@@ -55,7 +55,7 @@ export default function Inventory() {
                                 )}
                                 <b>HINTA: </b>{result.price} €<br></br>
                                 <b>MÄÄRÄ: </b>
-                                <input type="number" class="varasto" value={result.amount} onChange={(event) => {
+                                <input type="number" className="varasto" value={result.amount} onChange={(event) => {
                                     const newAmount = parseInt(event.target.value);
                                     updateAmount(result.productid, newAmount);
                                 }}/><br></br><br></br>
