@@ -17,7 +17,6 @@ import React from 'react'
 import Footer from './components/Footer'
 
 import Home from './pages/Home'
-import { ShoppingCart } from './components/ShoppingCart'
 import Help from './pages/Help'
 import Product from './pages/Product'
 import DefinitelyNotAdmin from './pages/DefinitelyNotAdmin'
