@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { CartDelete, CartDeleteButton, CartGetList } from '../components/ShoppingCart';
+import { CartDeleteButton, CartGetList } from '../components/ShoppingCart';
 import hostURL from '../Constants';
 
 export default function Checkout() {
 
     const [results, setResults] = useState([]);
-    const [cart, setCart] = useState("");
     const [userid, setUserid] = useState("");
     
     const URL = hostURL + "/api/products/getproductlist.php";
