@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingBagIcon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 function ShoppingCart() {
 
+    const navigate = useNavigate()
     const [itemCount, setItemCount] = useState("0");
 
     useEffect(() => {
@@ -37,18 +39,33 @@ function ShoppingCart() {
         };
     }, []);
 
+    const handleCheckout = () => {
+        
+        const role = Cookies.get('role');
+        const token = Cookies.get('token');
+        if (!role || !token) {
+            // User is not logged in, redirect them to login page
+            alert("Kirjaudu sisään tilataksesi")
+            navigate('../login');
+        } else {
+            // User is logged in, allow them to proceed to checkout
+            navigate('../Checkout');
+        }
+    };
+
     return (
         <>
             <div className="ml-4 flow-root lg:ml-6">
                 <div className="group -m-2 flex items-center p-2">
-                    <Link to="/Checkout">
-                    <ShoppingBagIcon
-                        className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                        aria-hidden="true"
-                /></Link>
-                <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{itemCount}</span>
-                <span className="sr-only">items in cart, view bag</span>
-            </div>
+                    <button onClick={handleCheckout}>
+                        <ShoppingBagIcon
+                            className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                            aria-hidden="true"
+                        />
+                    </button>
+                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{itemCount}</span>
+                    <span className="sr-only">items in cart, view bag</span>
+                </div>
             </div>
         </>
     );
